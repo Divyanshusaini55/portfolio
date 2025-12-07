@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Nearest Neighbors (KNN)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>K-Nearest Neighbors (KNN)</h1>
+            <p class="subtitle">Complete guide to understanding and implementing KNN algorithm</p>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <div class="container">
+            <div class="tab-list">
+                <button class="tab-btn active" data-tab="theory">Theory & Algorithm</button>
+                <button class="tab-btn" data-tab="demo">Interactive Demo</button>
+                <button class="tab-btn" data-tab="scratch">From Scratch</button>
+                <button class="tab-btn" data-tab="sklearn">Scikit-learn</button>
+                <button class="tab-btn" data-tab="example">Step-by-step</button>
+                <button class="tab-btn" data-tab="performance">Performance</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <section id="theory" class="tab-content active">
+                <div class="content-grid">
+                    <div class="content-main">
+                        <h2>What is K-Nearest Neighbors?</h2>
+                        <p>K-Nearest Neighbors (KNN) is a simple, yet powerful machine learning algorithm used for both classification and regression tasks. It's a non-parametric method that makes predictions based on the K nearest data points in the feature space.</p>
+                        
+                        <h3>How KNN Works</h3>
+                        <div class="algorithm-steps">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Choose K value</h4>
+                                    <p>Select the number of nearest neighbors to consider</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Calculate distances</h4>
+                                    <p>Compute distance from new point to all training points</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Find K nearest</h4>
+                                    <p>Identify K points with smallest distances</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h4>Make prediction</h4>
+                                    <p>Classify based on majority vote of K neighbors</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Distance Metrics</h3>
+                        <div class="distance-metrics">
+                            <div class="metric-card">
+                                <h4>Euclidean Distance</h4>
+                                <p class="formula">d = √[(x₂-x₁)² + (y₂-y₁)²]</p>
+                                <p>Most common metric, measures straight-line distance</p>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Manhattan Distance</h4>
+                                <p class="formula">d = |x₂-x₁| + |y₂-y₁|</p>
+                                <p>Sum of absolute differences, useful for sparse data</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-sidebar">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Pros & Cons</h3>
+                                <h4 class="pros-title">✓ Advantages</h4>
+                                <ul class="pros-list">
+                                    <li>Simple to understand and implement</li>
+                                    <li>No assumptions about data distribution</li>
+                                    <li>Works well with small datasets</li>
+                                    <li>Can be used for both classification and regression</li>
+                                </ul>
+                                
+                                <h4 class="cons-title">✗ Disadvantages</h4>
+                                <ul class="cons-list">
+                                    <li>Computationally expensive for large datasets</li>
+                                    <li>Sensitive to irrelevant features</li>
+                                    <li>Requires feature scaling</li>
+                                    <li>Struggles with high-dimensional data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="demo" class="tab-content">
+                <h2>Interactive KNN Demonstration</h2>
+                <div class="demo-grid">
+                    <div class="demo-controls">
+                        <div class="control-group">
+                            <label class="form-label">Dataset:</label>
+                            <select id="datasetSelect" class="form-control">
+                                <option value="blobs">Simple Clusters</option>
+                                <option value="moons">Two Moons</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="form-label">K Value: <span id="kValue">5</span></label>
+                            <input type="range" id="kSlider" min="1" max="15" value="5" class="slider">
+                        </div>
+                        
+                        <div class="control-group">
+                            <button id="resetDemo" class="btn btn--secondary">Reset Points</button>
+                        </div>
+                        
+                        <div class="demo-info">
+                            <h4>Instructions:</h4>
+                            <ul>
+                                <li>Adjust K value to see how it affects classification</li>
+                                <li>Click on the plot to add new test points</li>
+                                <li>Watch how decision boundaries change</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-visualization">
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <canvas id="demoChart"></canvas>
+                        </div>
+                        <div class="demo-stats">
+                            <div class="stat">
+                                <span class="stat-label">Training Points:</span>
+                                <span id="trainingCount">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Current K:</span>
+                                <span id="currentK">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="scratch" class="tab-content">
+                <h2>KNN Implementation from Scratch</h2>
+                <div class="implementation-section">
+                    <p>Let's build KNN from the ground up to understand exactly how it works:</p>
+                    
+                    <div class="code-block">
+                        <h3>Distance Calculation Function</h3>
+                        <pre><code class="language-python">import numpy as np
+from collections import Counter
+
+def euclidean_distance(point1, point2):
+    """Calculate Euclidean distance between two points"""
+    return np.sqrt(np.sum((np.array(point1) - np.array(point2))**2))</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>KNN Prediction Function</h3>
+                        <pre><code class="language-python">def knn_predict(training_data, training_labels, test_point, k):
+    """Predict class for test_point using k nearest neighbors"""
+    distances = []
+    
+    # Calculate distances to all training points
+    for i in range(len(training_data)):
+        dist = euclidean_distance(test_point, training_data[i])
+        distances.append((dist, training_labels[i]))
+    
+    # Sort by distance and get k nearest
+    distances.sort(key=lambda x: x[0])
+    k_nearest_labels = [label for _, label in distances[:k]]
+    
+    # Return most common class
+    return Counter(k_nearest_labels).most_common(1)[0][0]</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Example Usage</h3>
+                        <pre><code class="language-python"># Sample data: [height, weight] -> t-shirt size
+training_data = [
+    [158, 58], [160, 59], [163, 60], [165, 61], [168, 62],
+    [170, 63], [158, 63], [160, 64], [163, 64], [165, 65]
+]
+training_labels = ['M', 'M', 'M', 'L', 'L', 'L', 'M', 'L', 'L', 'L']
+
+# Predict for new person: height=162, weight=61
+new_person = [162, 61]
+predicted_size = knn_predict(training_data, training_labels, new_person, k=3)
+print(f"Predicted t-shirt size: {predicted_size}")</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scikit-learn Implementation -->
+            <section id="sklearn" class="tab-content">
+                <h2>Using Scikit-learn</h2>
+                <div class="sklearn-section">
+                    <p>Scikit-learn provides an optimized KNN implementation that's perfect for production use:</p>
+                    
+                    <div class="code-block">
+                        <h3>Basic Classification</h3>
+                        <pre><code class="language-python">from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_blobs
+from sklearn.metrics import accuracy_score
+
+# Generate sample data
+X, y = make_blobs(n_samples=300, centers=4, n_features=2, random_state=42)
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Create and train KNN classifier
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+# Make predictions
+y_pred = knn.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy:.2f}')</code></pre>
+                    </div>
+                    
+                    <div class="code-block">
+                        <h3>Hyperparameter Tuning</h3>
+                        <pre><code class="language-python">from sklearn.model_selection import GridSearchCV
+
+# Define parameter grid
+param_grid = {
+    'n_neighbors': [3, 5, 7, 9, 11],
+    'weights': ['uniform', 'distance'],
+    'metric': ['euclidean', 'manhattan']
+}
+
+# Grid search with cross-validation
+grid_search = GridSearchCV(
+    KNeighborsClassifier(),
+    param_grid,
+    cv=5,
+    scoring='accuracy'
+)
+
+grid_search.fit(X_train, y_train)
+print(f"Best parameters: {grid_search.best_params_}")
+print(f"Best score: {grid_search.best_score_:.3f}")</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section id="example" class="tab-content">
+                <h2>Step-by-step Manual Example</h2>
+                <div class="example-section">
+                    <p>Let's work through a complete example using the t-shirt size dataset:</p>
+                    
+                    <div class="example-data">
+                        <h3>Training Data</h3>
+                        <div class="data-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Height (cm)</th>
+                                        <th>Weight (kg)</th>
+                                        <th>T-shirt Size</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trainingTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="prediction-calculator">
+                        <h3>Make a Prediction</h3>
+                        <div class="calculator-inputs">
+                            <div class="input-group">
+                                <label class="form-label">Height (cm):</label>
+                                <input type="number" id="heightInput" class="form-control" value="162" min="150" max="180">
+                            </div>
+                            <div class="input-group">
+                                <label class="form-label">Weight (kg):</label>
+                                <input type="number" id="weightInput" class="form-control" value="61" min="50" max="80">
+                            </div>
+                            <div class="input-group">
+                                <label class="form-label">K value:</label>
+                                <input type="number" id="kInputExample" class="form-control" value="3" min="1" max="10">
+                            </div>
+                            <button id="calculateBtn" class="btn btn--primary">Calculate Prediction</button>
+                        </div>
+                        
+                        <div id="calculationResults" class="calculation-results"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="performance" class="tab-content">
+                <h2>Performance Analysis</h2>
+                <div class="performance-section">
+                    <div class="performance-grid">
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="accuracyChart"></canvas>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="complexityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="performance-insights">
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Key Insights</h3>
+                                <ul>
+                                    <li><strong>Optimal K:</strong> Usually odd numbers to avoid ties</li>
+                                    <li><strong>Bias-Variance Tradeoff:</strong> Small K = low bias, high variance</li>
+                                    <li><strong>Computational Complexity:</strong> O(n*d) for each prediction</li>
+                                    <li><strong>Memory Usage:</strong> Stores entire training dataset</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card__body">
+                                <h3>Best Practices</h3>
+                                <ul>
+                                    <li>Scale features to similar ranges</li>
+                                    <li>Use cross-validation to select K</li>
+                                    <li>Consider dimensionality reduction for high-D data</li>
+                                    <li>Use efficient data structures (KD-trees) for large datasets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KNN Tutorial by <a href="https://www.linkedin.com/in/divyanshu47/"> divyanshu saini</a></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
