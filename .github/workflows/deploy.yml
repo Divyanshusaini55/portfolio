@@ -35,9 +35,6 @@ jobs:
         env:
           NEXT_PUBLIC_DOMAIN: ${{ secrets.NEXT_PUBLIC_DOMAIN || 'divyanshu-portfolio.pages.github.io' }}
 
-      - name: Fix permissions
-        run: 'find ./out -type f ! -perm -444 | xargs chmod a+r'
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

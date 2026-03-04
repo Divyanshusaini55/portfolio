@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /.next/
+Disallow: /public/
+
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
