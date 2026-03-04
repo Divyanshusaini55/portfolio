@@ -9,7 +9,7 @@
     "typedRoutes": false,
     "distDir": ".next",
     "cleanDistDir": true,
-    "assetPrefix": "",
+    "assetPrefix": "/portfolio/",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.js",
     "useFileSystemPublicRoutes": true,
@@ -42,7 +42,7 @@
         256,
         384
       ],
-      "path": "/_next/image",
+      "path": "/portfolio/_next/image",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -75,14 +75,14 @@
       "maxInactiveAge": 60000,
       "pagesBufferLength": 5
     },
-    "basePath": "",
+    "basePath": "/portfolio",
     "sassOptions": {},
     "trailingSlash": false,
     "i18n": null,
     "productionBrowserSourceMaps": false,
     "excludeDefaultMomentLocales": true,
     "reactProductionProfiling": false,
-    "reactStrictMode": true,
+    "reactStrictMode": null,
     "reactMaxHeadersLength": 6000,
     "httpAgentOptions": {
       "keepAlive": true
