@@ -1,33 +1,41 @@
-[00:00:00.905] Server  LOG      ✓ Ready in 565ms
-[00:00:02.668] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:02.834] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:02.834] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:02.834] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618613648} /_vercel/insights/view
-[00:00:53.521] Server  LOG      ✓ Compiled in 67ms
-[00:00:56.910] Server  LOG      ✓ Compiled in 24ms
-[00:01:00.844] Server  LOG      ✓ Compiled in 32ms
-[00:01:03.762] Server  LOG      ✓ Compiled in 42ms
-[00:01:11.331] Server  LOG      ✓ Compiled in 36ms
-[00:01:13.030] Server  LOG      ✓ Compiled in 28ms
-[00:02:21.130] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:21.242] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:21.242] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:21.242] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618752060} /_vercel/insights/view
-[00:02:21.376] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:21.410] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:21.410] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:21.410] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618752298} /_vercel/insights/view
-[00:02:21.511] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:21.593] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:21.593] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:21.593] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618752444} /_vercel/insights/view
-[00:02:21.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:21.813] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:21.813] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:21.813] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618752620} /_vercel/insights/view
-[00:02:22.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:22.161] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:22.161] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:22.161] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772618752967} /_vercel/insights/view
-[00:02:43.669] Server  LOG      ✓ Compiled in 45ms
-[00:03:06.709] Server  LOG      ✓ Compiled in 82ms
+[00:13:10.242] Server  ERROR    ⨯ Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/server/app/page/build-manifest.json'
+[00:13:10.446] Server  ERROR    ⨯ Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/server/app/page/build-manifest.json'
+[00:13:13.281] Server  LOG      ○ Compiling /_error ...
+[00:13:14.421] Server  ERROR    ⨯ Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/static/development/_buildManifest.js.tmp.5jlv85gpbvb'
+[00:13:14.567] Server  ERROR    ⨯ Error: Cannot find module '../chunks/ssr/[turbopack]_runtime.js'
+Require stack:
+- /Users/divyanshu/Downloads/Portfolio/.next/dev/server/pages/_document.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/require.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/load-components.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/utils.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/options.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/index.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-server.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/start-server.js
+[00:13:14.788] Server  ERROR   Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/server/app/page/build-manifest.json'
+[00:13:14.861] Server  ERROR   Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/server/app/page/build-manifest.json'
+[00:13:14.921] Server  ERROR    ⨯ Error: Cannot find module '../chunks/ssr/[turbopack]_runtime.js'
+Require stack:
+- /Users/divyanshu/Downloads/Portfolio/.next/dev/server/pages/_document.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/require.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/load-components.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/utils.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/options.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/index.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-server.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/start-server.js
+[00:13:14.975] Server  ERROR    ⨯ Error: Cannot find module '../chunks/ssr/[turbopack]_runtime.js'
+Require stack:
+- /Users/divyanshu/Downloads/Portfolio/.next/dev/server/pages/_document.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/require.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/load-components.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/utils.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/options.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/build/swc/index.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/router-server.js
+- /Users/divyanshu/Downloads/Portfolio/node_modules/next/dist/server/lib/start-server.js
+[00:13:15.029] Server  ERROR   Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/routes-manifest.json'
+[00:13:15.096] Server  ERROR   Error: ENOENT: no such file or directory, open '/Users/divyanshu/Downloads/Portfolio/.next/dev/routes-manifest.json'
