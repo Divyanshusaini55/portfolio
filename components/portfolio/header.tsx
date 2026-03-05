@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react'
 import { FileDown, Github, Linkedin } from 'lucide-react'
+import { ProfileZoom } from './profile-zoom'
 
 const SOCIAL_LINKS = [
   {
@@ -33,15 +34,10 @@ export function Header() {
     <header className="mb-16">
       <div className="flex items-center justify-between mb-8">
         {/* Profile Image */}
-        <div className="w-20 h-20 rounded-full overflow-hidden border border-border flex-shrink-0 bg-secondary">
-          <img
-            src="/profile.png"
-            alt="Divyanshu Saini - Full Stack Developer"
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
+        <ProfileZoom
+          src="/profile.png"
+          alt="Divyanshu Saini - Full Stack Developer"
+        />
 
         {/* Social Links */}
         <div className="flex gap-3 items-center">
@@ -63,14 +59,14 @@ export function Header() {
 
       {/* Main Heading */}
       <h1 className="text-3xl md:text-4xl font-sans font-medium mb-4 tracking-tight">
-        𓀛 divyanshu saini
+        divyanshu saini 𓀛
       </h1>
 
       {/* Role Description */}
       <div className="flex items-center gap-2 text-muted-foreground mb-6">
         <span className="text-primary font-mono text-sm">Software Engineer</span>
         <span className="text-border">|</span>
-        <span className="font-mono text-sm">Machine Learning Student</span>
+        <span className="font-mono text-sm">Machine Learning Enthusiast</span>
       </div>
 
       {/* Introduction */}

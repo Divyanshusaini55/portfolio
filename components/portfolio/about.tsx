@@ -2,7 +2,7 @@ export function About() {
   return (
     <section className="mb-16" id="about">
       <h2 className="text-lg font-sans font-medium mb-4 text-foreground flex items-center gap-2">
-        <span className="text-primary" aria-hidden="true">###</span> 
+        <span className="text-primary" aria-hidden="true">𖤊</span> 
         <span>About</span>
       </h2>
 

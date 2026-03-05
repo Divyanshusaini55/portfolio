@@ -4,10 +4,10 @@ export function Experience() {
   const experiences = [
     {
       role: "Full Stack Intern",
-      company: "Capri Global Capital Limited",
+      company: "Capri Global Capital Limited, Noida",
       duration: "Feb 2026 - Present",
       highlights: [
-        "10AM - 5PM, Monday to Friday",
+        "𓀋",
       ],
     },
   ]
@@ -15,7 +15,7 @@ export function Experience() {
   return (
     <section className="mb-16">
       <h2 className="text-xl font-sans font-medium mb-8 tracking-tight">
-        <span className="text-primary">*</span> experience
+        <span className="text-primary">𖤊</span> Experience
       </h2>
 
       <div className="space-y-8">
@@ -36,7 +36,7 @@ export function Experience() {
               </p>
               <ul className="space-y-1">
                 {exp.highlights.map((highlight, index) => (
-                  <li key={index} className="text-xs text-muted-foreground flex items-center gap-2">
+                  <li key={index} className="text-sm text-muted-foreground flex items-center gap-2">
                     <span className="text-primary/60 flex-shrink-0">•</span>
                     <span>{highlight}</span>
                   </li>

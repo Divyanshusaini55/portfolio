@@ -2,7 +2,7 @@ export function Education() {
   return (
     <section className="mb-16" id="education">
       <h2 className="text-lg font-sans font-medium mb-6 text-foreground flex items-center gap-2">
-        <span className="text-primary">###</span> Education
+        <span className="text-primary">𖤊</span> Education
       </h2>
       
       <div className="space-y-4">

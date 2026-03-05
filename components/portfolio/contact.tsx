@@ -12,7 +12,7 @@ export function Contact() {
   return (
     <section className="mb-16" id="contact">
       <h2 className="text-lg font-sans font-medium mb-6 text-foreground flex items-center gap-2">
-        <span className="text-primary">###</span> Contact
+        <span className="text-primary">𖤊</span> Contact
       </h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -9,7 +9,7 @@ const projects = [
       "Implemented category-based exam flow and leaderboard functionality",
       "Integrated real-time result analytics and performance tracking",
     ],
-    link: "#",
+    link: "https://ai-exam-engine.vercel.app",
   },
   {
     title: "Data Analysis Agent",
@@ -19,7 +19,7 @@ const projects = [
       "Generated intelligent insights using AI models",
       "Created dynamic visualization components",
     ],
-    link: "#",
+    link: "https://tds-project-2-divyanshusaini.vercel.app/",
   },
   {
     title: "Whatsapp Chat Analyser",
@@ -29,7 +29,7 @@ const projects = [
       "Generated activity heatmaps and trend analysis",
       "Built emoji frequency and sentiment analysis features",
     ],
-    link: "#",
+    link: "https://whatsapp-chat-analysis-2fkvmkwj8vfszue-duehnxn.streamlit.app/",
   },
   {
     title: "LLM Agent",
@@ -39,7 +39,7 @@ const projects = [
       "Connected external APIs and search engines",
       "Implemented multi-step reasoning workflows",
     ],
-    link: "#",
+    link: "https://llm-agent-plum.vercel.app/",
   },
 ]
 
@@ -47,7 +47,7 @@ export function Projects() {
   return (
     <section className="mb-16" id="projects">
       <h2 className="text-lg font-sans font-medium mb-6 text-foreground flex items-center gap-2">
-        <span className="text-primary">###</span> Projects
+        <span className="text-primary">𖤊</span> Projects
       </h2>
       
       <div className="space-y-6">
