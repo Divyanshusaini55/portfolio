@@ -14,7 +14,7 @@ export function Interests() {
     "exploring",
   ]
 
-  const hates = ["procrastination", "bugs at 2am", "slow wifi"]
+  const hates = ["procrastination", "2:59 AM thoughts", "slow wifi"]
 
   return (
     <section className="mb-16" id="interests">
