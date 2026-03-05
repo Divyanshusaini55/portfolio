@@ -9,7 +9,7 @@ import { Contact } from '@/components/portfolio/contact'
 import { Footer } from '@/components/portfolio/footer'
 
 export const metadata: Metadata = {
-  title: 'Divyanshu Saini | Portfolio',
+  title: 'Divyanshu Saini - Portfolio',
   description: 'Full Stack Developer & ML Engineer - Explore my projects and experience',
 }
 

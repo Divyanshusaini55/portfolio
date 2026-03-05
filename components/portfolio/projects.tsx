@@ -62,7 +62,7 @@ export function Projects() {
                 className="font-mono text-sm text-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 [{project.title}]
-                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink className="w-3 h-3" />
               </a>
               <p className="text-sm text-muted-foreground mt-1">
                 {project.description}
