@@ -20,13 +20,13 @@ export function About() {
 
         <div className="font-mono text-sm space-y-1 pl-4 border-l-2 border-border">
           <p className="text-muted-foreground/80">
-            <span aria-hidden="true">{">"}</span> from UP11, got lost somewhere in Noida
+            <span aria-hidden="true">{">"}</span> from local, got lost in localhost
           </p>
           <p className="text-muted-foreground/80">
-            <span aria-hidden="true">{">"}</span> turning caffeine into code, one bug at a time
+            <span aria-hidden="true">{">"}</span> turning caffeine into bugs, one bug at a time
           </p>
           <p className="text-muted-foreground/80">
-            <span aria-hidden="true">{">"}</span> not just training ml models — training muscles too.
+            <span aria-hidden="true">{">"}</span> lone and peaceful.
           </p>
         </div>
 
