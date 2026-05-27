@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { spaceGrotesk, crimsonPro, jetbrainsMono } from './fonts'
 import { OnekoLoader } from './oneko-loader'
+import { ThemeProvider } from '@/components/theme-provider'
 import './global.css'
 
 export const viewport: Viewport = {
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html 
       lang="en"
       className={`${spaceGrotesk.variable} ${crimsonPro.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <meta charSet="utf-8" />
@@ -82,9 +84,16 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
-        {children}
-        <Analytics />
-        <OnekoLoader />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Analytics />
+          <OnekoLoader />
+        </ThemeProvider>
       </body>
     </html>
   )

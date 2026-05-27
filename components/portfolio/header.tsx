@@ -1,8 +1,11 @@
 'use client'
 
 import { useCallback } from 'react'
-import { FileDown, Github, Linkedin } from 'lucide-react'
+import Link from 'next/link'
+import { FileDown, Github, Linkedin, BookOpen } from 'lucide-react'
 import { ProfileZoom } from './profile-zoom'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { SpotifyNowPlaying } from '@/components/spotify-now-playing'
 
 const SOCIAL_LINKS = [
   {
@@ -39,7 +42,7 @@ export function Header() {
           alt="Divyanshu Saini - Full Stack Developer"
         />
 
-        {/* Social Links */}
+        {/* Social Links & Theme Toggle */}
         <div className="flex gap-3 items-center">
           {SOCIAL_LINKS.map(({ href, label, Icon }) => (
             <a
@@ -54,6 +57,7 @@ export function Header() {
               <Icon className="w-5 h-5" />
             </a>
           ))}
+          <ThemeToggle />
         </div>
       </div>
 
@@ -74,17 +78,29 @@ export function Header() {
         {"Here's my digital coordinates."}
       </p>
 
-      {/* Download Resume Button */}
-      <a
-        href="/resume.pdf"
-        download="Divyanshu_Saini_Resume.pdf"
-        onClick={playSound}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-        aria-label="Download my resume"
-      >
-        <FileDown className="w-4 h-4" />
-        download resume
-      </a>
+      {/* Action Buttons */}
+      <div className="flex flex-wrap items-center gap-3 md:gap-4">
+        <a
+          href="/resume.pdf"
+          download="Divyanshu_Saini_Resume.pdf"
+          onClick={playSound}
+          className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          aria-label="Download my resume"
+        >
+          <FileDown className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          download resume
+        </a>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          aria-label="View my notes"
+        >
+          <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          view notes
+        </Link>
+      </div>
+
+      <SpotifyNowPlaying />
     </header>
   )
 }
