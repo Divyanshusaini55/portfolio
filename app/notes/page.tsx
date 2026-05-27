@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Cormorant_Garamond, Crimson_Pro } from 'next/font/google';
 import styles from './notes-index.module.css';
 
