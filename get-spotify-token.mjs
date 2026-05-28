@@ -3,8 +3,6 @@ import querystring from 'querystring';
 
 const CLIENT_ID = '39b5067168d14aeeb245f4aa53b7c77f';
 const CLIENT_SECRET = 'c6a10682bf114c3faf159f04a374964c';
-
-// Using example.com because Spotify dashboard can be very strict about localhost
 const REDIRECT_URI = 'https://example.com/callback';
 const SCOPE = 'user-read-currently-playing user-read-recently-played';
 
@@ -53,11 +51,11 @@ rl.question('3. Copy the ENTIRE URL from your browser address bar and paste it h
     const data = await response.json();
     
     if (data.error) {
-      console.log('\n❌ Spotify API Error:', data);
+      console.log('\nSpotify API Error:', data);
       process.exit(1);
     }
 
-    console.log('\n✅ SUCCESS! Add these to your .env.local file in your portfolio directory:\n');
+    console.log('\nSUCCESS! Add these to your .env.local file in your portfolio directory:\n');
     console.log(`SPOTIFY_CLIENT_ID=${CLIENT_ID}`);
     console.log(`SPOTIFY_CLIENT_SECRET=${CLIENT_SECRET}`);
     console.log(`SPOTIFY_REFRESH_TOKEN=${data.refresh_token}\n`);

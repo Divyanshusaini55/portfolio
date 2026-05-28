@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
 import { getNowPlaying } from '@/lib/spotify';
-
-// Revalidate every 10 seconds to avoid hitting Spotify rate limits too hard
 export const revalidate = 10;
 
 export async function GET() {
@@ -13,8 +11,6 @@ export async function GET() {
     }
 
     const track = response.data;
-    
-    // For local files or missing data, fail gracefully
     if (!track || !track.name) {
        return NextResponse.json({ isPlaying: false });
     }

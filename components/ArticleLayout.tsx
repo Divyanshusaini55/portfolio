@@ -4,10 +4,8 @@ import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import { Crimson_Pro, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
 import styles from './article.module.css';
-
-// Import CSS for math and syntax highlighting
 import 'katex/dist/katex.min.css';
-import 'highlight.js/styles/atom-one-dark.css'; // You can change this to prism-tomorrow equivalent if desired
+import 'highlight.js/styles/atom-one-dark.css'; 
 
 const crimsonPro = Crimson_Pro({ 
   subsets: ['latin'], 
@@ -92,11 +90,6 @@ export default function ArticleLayout({
                   return <code className={`${className || ''} ${jetbrainsMono.className}`} {...props}>{children}</code>;
                 },
                 p: ({node, children, ...props}) => {
-                  // To fix drop caps font family, we can just render normal p tag
-                  // and the CSS handles the ::first-letter styling, but we might need 
-                  // to globally target it if we want the specific font. In CSS module we can't easily 
-                  // inject font families for pseudo-elements using CSS variables without global access
-                  // However, adding a class or just letting the CSS module handle it with standard serif fallback works
                   return <p {...props}>{children}</p>;
                 }
               }}

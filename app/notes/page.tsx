@@ -3,7 +3,32 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import { Cormorant_Garamond, Crimson_Pro } from 'next/font/google';
+import { Metadata } from 'next';
 import styles from './notes-index.module.css';
+
+export const metadata: Metadata = {
+  title: 'divyanshu saini | notes',
+  description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+  openGraph: {
+    title: 'divyanshu saini | notes',
+    description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+    url: 'https://divyanshusaini.me/notes',
+    images: [
+      {
+        url: 'https://divyanshusaini.me/images/notes.png',
+        width: 1200,
+        height: 630,
+        alt: 'divyanshu saini | notes',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'divyanshu saini | notes',
+    description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+    images: ['https://divyanshusaini.me/images/notes.png'],
+  },
+};
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'], 
@@ -38,10 +63,10 @@ async function getBlogs() {
         slug: file.replace('.md', ''),
         title: data.title || 'Untitled',
         description: data.description || '',
-        order: data.order !== undefined ? data.order : 999, // default to end if no order
+        order: data.order !== undefined ? data.order : 999, 
       };
     })
-    .filter(blog => blog.order !== 999) // only include those with explicit order (to hide hope.md if wanted, or just sort them)
+    .filter(blog => blog.order !== 999) 
     .sort((a, b) => a.order - b.order);
 
   return blogs;
@@ -95,7 +120,6 @@ export default async function NotesIndex() {
         <div className={styles.sectionDivider}>NOTES</div>
 
         <div className={styles.notesImageContainer}>
-          {/* Using a regular img tag to avoid Next.js Image component strictness about local files if they aren't fully configured */}
           <img 
             src="/images/notes.png" 
             alt="Handwritten math notes" 

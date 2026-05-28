@@ -64,9 +64,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function NotePage({ params }: { params: { slug: string } }) {
-  // Await params as required by Next.js 15+ 
-  // Depending on Next version, `params` might be a Promise.
-  // We'll await it just in case Next.js 15 is used.
   const resolvedParams = await params;
   const { slug } = resolvedParams;
 
@@ -81,14 +78,10 @@ export default async function NotePage({ params }: { params: { slug: string } })
   }
 
   const { data, content } = matter(fileContent);
-
-  // Extract metadata directly from the gray-matter data or fallback to defaults
-  // For hope.md which had custom frontmatter like "Title: Live Content"
   const title = data.title || data.Title || 'Article';
   const author = data.author || data.Author || 'divyanshu saini'; 
   const authorLink = data.authorLink || data.AuthorLink || 'https://x.com/dvyanshux';
 
-  // Use a placeholder image or an image from metadata
   const image = data.image || data.Image || '/images/hope.png';
 
   return (

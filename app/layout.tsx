@@ -17,8 +17,6 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: dark)', color: '#000000' },
   ],
 }
-
-// Build domain dynamically based on environment
 const getDomain = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN
   return domain || 'https://divyanshu-portfolio.pages.github.io'

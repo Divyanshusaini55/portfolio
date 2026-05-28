@@ -1,17 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
-
-/**
- * OnekoLoader - Loads the oneko cat animation script
- * This component is responsible for loading the oneko.js script after hydration
- * to prevent SSR/hydration mismatches
- */
 export function OnekoLoader() {
   useEffect(() => {
-    // Only load on client side and check if script is already loaded
     if (document.querySelector('script[src="/oneko.js"]')) {
-      return // Script already loaded
+      return 
     }
 
     try {
