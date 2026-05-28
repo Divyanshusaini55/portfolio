@@ -2,7 +2,7 @@
 title: "HOPE: A Self-Referential Module"
 description: "Nested Learning: The Illusion of Deep Learning Architecture"
 author: divyanshu saini
-authorLink: https://x.com/dvyanshux
+authorLink: https://divyanshusaini.me
 order: 0
 ---
 
