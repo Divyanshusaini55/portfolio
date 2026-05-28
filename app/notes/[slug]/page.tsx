@@ -17,6 +17,52 @@ export async function generateStaticParams() {
   }
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+
+  const contentDir = path.join(process.cwd(), 'content');
+  const filePath = path.join(contentDir, `${slug}.md`);
+
+  try {
+    const fileContent = await fs.readFile(filePath, 'utf8');
+    const { data } = matter(fileContent);
+    
+    const title = data.title || data.Title || 'Article';
+    const description = data.description || data.Description || 'Read this article by Divyanshu Saini';
+    const image = data.image || data.Image || '/images/hope.png';
+    const domain = process.env.NEXT_PUBLIC_DOMAIN || 'https://divyanshusaini.me';
+
+    return {
+      title: `${title} | Divyanshu Saini`,
+      description: description,
+      openGraph: {
+        title: title,
+        description: description,
+        url: `${domain}/notes/${slug}`,
+        images: [
+          {
+            url: `${domain}${image}`,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: title,
+        description: description,
+        images: [`${domain}${image}`],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Article Not Found',
+    };
+  }
+}
+
 export default async function NotePage({ params }: { params: { slug: string } }) {
   // Await params as required by Next.js 15+ 
   // Depending on Next version, `params` might be a Promise.
