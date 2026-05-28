@@ -5,7 +5,6 @@ import { spaceGrotesk, crimsonPro, jetbrainsMono } from './fonts'
 import { OnekoLoader } from './oneko-loader'
 import { ThemeProvider } from '@/components/theme-provider'
 import './global.css'
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
