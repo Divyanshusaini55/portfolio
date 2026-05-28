@@ -8,10 +8,10 @@ import styles from './notes-index.module.css';
 
 export const metadata: Metadata = {
   title: 'divyanshu saini | notes',
-  description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+  description: 'Notes on machine learning, deep learning, neural networks, ai and their underlying mathematics.',
   openGraph: {
     title: 'divyanshu saini | notes',
-    description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+    description: 'Notes on machine learning, deep learning, neural networks, ai and their underlying mathematics.',
     url: 'https://divyanshusaini.me/notes',
     images: [
       {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'divyanshu saini | notes',
-    description: 'Notes on machine learning, neural networks, and their underlying mathematics.',
+    description: 'Notes on machine learning, deep learning, neural networks, ai and their underlying mathematics.',
     images: ['https://divyanshusaini.me/images/notes.png'],
   },
 };
@@ -88,7 +88,7 @@ export default async function NotesIndex() {
         <header className={styles.header}>
           <h1 className={`${styles.title} ${crimsonPro.className}`}>divyanshu saini</h1>
           <p className={styles.bio}>
-            I study machine learning, neural networks,<br/>
+            I study machine learning, deep learning, neural networks, ai <br/>
             and their underlying mathematics.
           </p>
         </header>
