@@ -80,7 +80,7 @@ export default async function NotePage({ params }: { params: { slug: string } })
   const { data, content } = matter(fileContent);
   const title = data.title || data.Title || 'Article';
   const author = data.author || data.Author || 'divyanshu saini'; 
-  const authorLink = data.authorLink || data.AuthorLink || 'https://x.com/dvyanshux';
+  const authorLink = data.authorLink || data.AuthorLink || 'https://divyanshusaini.me';
 
   const image = data.image || data.Image || '/images/hope.png';
 
