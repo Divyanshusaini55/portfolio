@@ -1,5 +1,8 @@
+'use client';
+
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
+import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import { Crimson_Pro, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
@@ -60,7 +63,7 @@ export default function ArticleLayout({
         <main>
           <article className={styles.content}>
             <ReactMarkdown
-              remarkPlugins={[remarkMath]}
+              remarkPlugins={[remarkGfm, remarkMath]}
               rehypePlugins={[[rehypeKatex, {
                 macros: {
                   "\\m": "\\mathbf",
