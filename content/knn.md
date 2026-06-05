@@ -1059,7 +1059,7 @@ pipeline.fit(X_train, y_train)
 y_pred = pipeline.predict(X_test)
 
 # Evaluate
-print("=== KNN Classification ===")
+print("KNN Classification")
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
 print(f"\nClassification Report:\n{classification_report(y_test, y_pred)}")
 
@@ -1163,7 +1163,7 @@ knn_reg = KNeighborsRegressor(n_neighbors=5, weights='distance')
 knn_reg.fit(X_train_r, y_train_r)
 y_pred_r = knn_reg.predict(X_test_r)
 
-print(f"\n=== KNN Regression ===")
+print(f"\nKNN Regression")
 print(f"R² Score: {r2_score(y_test_r, y_pred_r):.4f}")
 print(f"RMSE: {np.sqrt(mean_squared_error(y_test_r, y_pred_r)):.4f}")
 ```
