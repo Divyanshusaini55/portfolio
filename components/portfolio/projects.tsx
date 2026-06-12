@@ -50,52 +50,53 @@ export function Projects() {
         <span className="text-primary">𖤊</span> Projects
       </h2>
       
-      <div className="space-y-6">
+      <div className="space-y-2">
         {projects.map((project) => (
-          <div key={project.title} className="flex items-start gap-4 group">
-            <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-125 transition-transform flex-shrink-0" />
+          <a
+            key={project.title}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-start gap-4 rounded-2xl p-4 -mx-4 transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 border border-transparent hover:border-border/50 block"
+          >
+            <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
             <div className="flex-1">
-              <a 
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-sm text-foreground hover:text-primary transition-colors inline-flex items-center gap-2"
-              >
+              <div className="font-mono text-sm text-foreground group-hover:text-primary transition-colors inline-flex items-center gap-2">
                 [{project.title}]
-                <ExternalLink className="w-3 h-3" />
-              </a>
-              <p className="text-sm text-muted-foreground mt-1">
+                <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">
                 {project.description}
               </p>
               {project.details && (
-                <ul className="mt-3 ml-4 space-y-1">
+                <ul className="mt-4 space-y-1.5">
                   {project.details.map((detail, index) => (
-                    <li key={index} className="text-xs text-muted-foreground flex items-center gap-2">
-                      <span className="text-primary/60 flex-shrink-0">•</span>
+                    <li key={index} className="text-xs text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary/60 flex-shrink-0 mt-0.5">•</span>
                       <span>{detail}</span>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-          </div>
+          </a>
         ))}
       </div>
       
-      <div className="mt-8 p-4 bg-secondary/50 rounded-lg border border-border">
+      <a 
+        href="https://github.com/Divyanshusaini55"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group mt-8 p-5 bg-secondary/30 rounded-2xl border border-transparent transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 hover:border-border/50"
+      >
         <p className="text-sm text-muted-foreground">
           <span className="text-primary font-mono">*</span> pieces {"I'm"} developing
         </p>
-        <a 
-          href="https://github.com/Divyanshusaini55"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-2 font-mono text-sm text-foreground hover:text-primary transition-colors"
-        >
+        <div className="inline-flex items-center gap-2 mt-2 font-mono text-sm text-foreground group-hover:text-primary transition-colors">
           [Explore GitHub]
-          <ExternalLink className="w-3 h-3" />
-        </a>
-      </div>
+          <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </div>
+      </a>
     </section>
   )
 }

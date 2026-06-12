@@ -22,12 +22,35 @@ const getDomain = () => {
 }
 
 export const metadata: Metadata = {
-  title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
+  metadataBase: new URL(getDomain()),
+  title: {
+    default: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
+    template: '%s | Divyanshu Saini',
+  },
   description: 'Personal portfolio of Divyanshu Saini - Full Stack Software Engineer, Machine Learning Student at IIT Madras. Specializing in AI, LLMs, and Data Science.',
-  keywords: ['Developer', 'Machine Learning', 'Full Stack', 'React', 'Next.js', 'TypeScript', 'AI', 'Data Science'],
-  authors: [{ name: 'Divyanshu Saini' }],
+  keywords: [
+    'Divyanshu Saini',
+    'Developer',
+    'Machine Learning',
+    'Full Stack',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'AI',
+    'Data Science',
+    'Software Engineer',
+    'Portfolio',
+    'IIT Madras'
+  ],
+  authors: [{ name: 'Divyanshu Saini', url: getDomain() }],
   creator: 'Divyanshu Saini',
+  publisher: 'Divyanshu Saini',
   generator: 'Next.js',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: '/profile.png',
     apple: '/profile.png',
@@ -36,13 +59,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: getDomain(),
+    url: '/',
     siteName: 'Divyanshu Saini Portfolio',
     title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Personal portfolio showcasing projects in Full Stack Development, Machine Learning, and AI',
     images: [
       {
-        url: `${getDomain()}/profile.png`,
+        url: '/profile.png',
         width: 1200,
         height: 630,
         alt: 'Divyanshu Saini',
@@ -52,14 +75,25 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@dvyanshux',
+    creator: '@dvyanshux',
     title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Personal portfolio of a full stack developer and ML engineer',
-    creator: '@dvyanshux',
-    images: [`${getDomain()}/profile.png`],
+    images: ['/profile.png'],
   },
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
-    canonical: getDomain(),
+    canonical: '/',
   },
 }
 

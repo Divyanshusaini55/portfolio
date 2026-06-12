@@ -18,26 +18,26 @@ export function Experience() {
         <span className="text-primary">𖤊</span> Experience
       </h2>
 
-      <div className="space-y-8">
+      <div className="space-y-2">
         {experiences.map((exp) => (
-          <div key={exp.role} className="flex items-start gap-4 group">
-            <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-125 transition-transform flex-shrink-0" />
+          <div key={exp.role} className="group flex items-start gap-4 rounded-2xl p-4 -mx-4 transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 border border-transparent hover:border-border/50">
+            <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
             <div className="flex-1">
               <div className="flex items-start justify-between gap-2 mb-1">
-                <h3 className="font-mono text-sm text-foreground">
+                <h3 className="font-mono text-sm text-foreground group-hover:text-primary transition-colors">
                   {exp.role}
                 </h3>
-                <span className="text-xs text-muted-foreground whitespace-nowrap">
+                <span className="font-mono text-xs text-muted-foreground whitespace-nowrap">
                   {exp.duration}
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mb-3">
                 {exp.company}
               </p>
-              <ul className="space-y-1">
+              <ul className="space-y-1.5">
                 {exp.highlights.map((highlight, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="text-primary/60 flex-shrink-0">•</span>
+                  <li key={index} className="text-xs text-muted-foreground flex items-start gap-2">
+                    <span className="text-primary/60 flex-shrink-0 mt-0.5">•</span>
                     <span>{highlight}</span>
                   </li>
                 ))}

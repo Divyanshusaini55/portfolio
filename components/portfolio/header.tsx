@@ -84,18 +84,18 @@ export function Header() {
           href="/resume.pdf"
           download="Divyanshu_Saini_Resume.pdf"
           onClick={playSound}
-          className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          className="group inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md active:scale-95 font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
           aria-label="Download my resume"
         >
-          <FileDown className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <FileDown className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
           download resume
         </a>
         <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          href="/notes"
+          className="group inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-primary/25 active:scale-95 font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
           aria-label="View my notes"
         >
-          <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
           view notes
         </Link>
       </div>

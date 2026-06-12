@@ -5,14 +5,14 @@ export function Education() {
         <span className="text-primary">𖤊</span> Education
       </h2>
       
-      <div className="space-y-4">
-        <div className="flex items-start gap-4 group">
-          <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-125 transition-transform" />
+      <div className="space-y-2">
+        <div className="group flex items-start gap-4 rounded-2xl p-4 -mx-4 transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 border border-transparent hover:border-border/50">
+          <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <a 
                 href="#"
-                className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+                className="font-mono text-sm text-foreground group-hover:text-primary transition-colors"
               >
                 [B.Tech CSE(AIML)]
               </a>
@@ -26,13 +26,13 @@ export function Education() {
           </div>
         </div>
 
-        <div className="flex items-start gap-4 group">
-          <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-125 transition-transform" />
+        <div className="group flex items-start gap-4 rounded-2xl p-4 -mx-4 transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 border border-transparent hover:border-border/50">
+          <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <a 
                 href="#"
-                className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+                className="font-mono text-sm text-foreground group-hover:text-primary transition-colors"
               >
                 [B.S (Data Science & Application)]
               </a>

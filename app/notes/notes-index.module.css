@@ -62,15 +62,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #f0eee5;
+  padding: 1.5rem 1.25rem;
+  margin: 0 -1.25rem;
+  border-radius: 16px;
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
 }
 
 .blogItem:hover {
-  opacity: 0.7;
+  background-color: #fff;
+  border-color: #f0eee5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
 }
 
 .blogInfo {
@@ -104,15 +109,17 @@
   font-size: 0.75rem;
   color: #666;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .implButton:hover {
-  background-color: #f5f3eb;
+  background-color: #fff;
   border-color: #e6e2d3;
   color: #333;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
 }
 
 .notesImageContainer {

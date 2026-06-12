@@ -9,8 +9,17 @@ import { Contact } from '@/components/portfolio/contact'
 import { Footer } from '@/components/portfolio/footer'
 
 export const metadata: Metadata = {
-  title: 'Divyanshu Saini - Portfolio',
+  title: 'Portfolio',
   description: 'Full Stack Developer & ML Engineer - Explore my projects and experience',
+  openGraph: {
+    title: 'Portfolio | Divyanshu Saini',
+    description: 'Full Stack Developer & ML Engineer - Explore my projects and experience',
+    url: '/',
+  },
+  twitter: {
+    title: 'Portfolio | Divyanshu Saini',
+    description: 'Full Stack Developer & ML Engineer - Explore my projects and experience',
+  },
 }
 
 export default function Home() {

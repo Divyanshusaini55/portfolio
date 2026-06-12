@@ -16,8 +16,8 @@ export function Contact() {
       </h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="p-4 bg-secondary/50 rounded-lg border border-border">
-          <p className="text-sm text-muted-foreground mb-3">
+        <div className="group p-5 bg-secondary/30 rounded-2xl border border-transparent transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 hover:border-border/50">
+          <p className="text-sm text-muted-foreground mb-4">
             <span className="text-primary font-mono">*</span> my contacts
           </p>
           <div className="space-y-3">
@@ -35,8 +35,8 @@ export function Contact() {
           </div>
         </div>
         
-        <div className="p-4 bg-secondary/50 rounded-lg border border-border">
-          <p className="text-sm text-muted-foreground mb-3">
+        <div className="group p-5 bg-secondary/30 rounded-2xl border border-transparent transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 hover:border-border/50">
+          <p className="text-sm text-muted-foreground mb-4">
             <span className="text-primary font-mono">*</span> links
           </p>
           <div className="flex gap-4">
