@@ -5,4 +5,4 @@ author: divyanshu saini
 order: 4
 ---
 
-Placeholder content for Chain of Thought.
+Chain of Thought.

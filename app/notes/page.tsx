@@ -74,13 +74,13 @@ async function getBlogs() {
 
 export default async function NotesIndex() {
   const blogs = await getBlogs();
-
-  const implementations = [
-    'Transformer', 'Multi-Head Attention', 'RoPE',
-    'ALiBi', 'Transformer-XL', 'RETRO',
-    'Compressive Transformer', 'miniGPT', 'SwiGLU',
-    'kNN-LM', 'GLU', 'Feedback Transformer'
-  ];
+  const implementations = ["Coming Soon!"]
+  // const implementations = [
+  //   'Transformer', 'Multi-Head Attention', 'RoPE',
+  //   'ALiBi', 'Transformer-XL', 'RETRO',
+  //   'Compressive Transformer', 'miniGPT', 'SwiGLU',
+  //   'kNN-LM', 'GLU', 'Feedback Transformer'
+  // ];
 
   return (
     <div className={`${styles.pageContainer} ${cormorant.variable}`}>
