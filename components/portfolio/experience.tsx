@@ -27,7 +27,7 @@ export function Experience() {
                 <h3 className="font-mono text-sm text-foreground group-hover:text-primary transition-colors">
                   {exp.role}
                 </h3>
-                <span className="font-mono text-xs text-muted-foreground whitespace-nowrap">
+                <span className="font-mono font-semibold text-xs text-muted-foreground whitespace-nowrap">
                   {exp.duration}
                 </span>
               </div>
@@ -36,8 +36,8 @@ export function Experience() {
               </p>
               <ul className="space-y-1.5">
                 {exp.highlights.map((highlight, index) => (
-                  <li key={index} className="text-xs text-muted-foreground flex items-start gap-2">
-                    <span className="text-primary/60 flex-shrink-0 mt-0.5">•</span>
+                  <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-[7px]" />
                     <span>{highlight}</span>
                   </li>
                 ))}

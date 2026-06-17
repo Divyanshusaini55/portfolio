@@ -9,6 +9,7 @@ import { Crimson_Pro, Cormorant_Garamond, JetBrains_Mono } from 'next/font/googl
 import styles from './article.module.css';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/atom-one-dark.css'; 
+import Mermaid from './Mermaid';
 
 const crimsonPro = Crimson_Pro({ 
   subsets: ['latin'], 
@@ -90,6 +91,10 @@ export default function ArticleLayout({
                 h5: ({node, ...props}) => <h5 style={{ fontFamily: 'var(--font-cormorant), serif' }} {...props} />,
                 h6: ({node, ...props}) => <h6 style={{ fontFamily: 'var(--font-cormorant), serif' }} {...props} />,
                 code: ({node, className, children, ...props}) => {
+                  const match = /language-(\w+)/.exec(className || '');
+                  if (match && match[1] === 'mermaid') {
+                    return <Mermaid chart={String(children).replace(/\n$/, '')} />;
+                  }
                   return <code className={`${className || ''} ${jetbrainsMono.className}`} {...props}>{children}</code>;
                 },
                 p: ({node, children, ...props}) => {

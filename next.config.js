@@ -1,7 +1,14 @@
-const isProd = process.env.NODE_ENV === "production";
+// const isProd = process.env.NODE_ENV === "production";
 
+// const nextConfig = {
+//   output: "export",
+//   images: {
+//     unoptimized: true,
+//   },
+// };
+
+// module.exports = nextConfig;
 const nextConfig = {
-  output: "export",
   images: {
     unoptimized: true,
   },
