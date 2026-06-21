@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function About() {
   return (
     <section className="mb-16" id="about">
@@ -32,15 +34,13 @@ export function About() {
 
         <p className="text-sm">
           faith {"->"}
-          <a
-            href="/shiv.html"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/shiv"
             className="text-primary ml-2 hover:underline inline-block focus:outline-none focus:ring-2 focus:ring-primary rounded"
-            aria-label="View consciousness exploration (opens in new tab)"
+            aria-label="View consciousness exploration"
           >
             [consciousness]
-          </a>
+          </Link>
         </p>
       </div>
     </section>

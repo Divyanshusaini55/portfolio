@@ -1,7 +1,46 @@
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, LineChart, BarChart } from "lucide-react"
 import DiagramModal from "../DiagramModal"
 import fs from "fs"
 import path from "path"
+
+type Skill = { name: string; icon: string; color?: string };
+
+const SkillBadge = ({ name, icon, color }: Skill) => {
+  const isInvertable = ['nextdotjs', 'openai', 'vercel', 'github', 'django', 'pandas', 'numpy'].includes(icon);
+  const hex = color ? `#${color}` : 'var(--foreground)';
+  
+  return (
+    <div className="group/badge relative flex items-center h-8 px-2 rounded-md bg-secondary/40 border border-border/50 transition-all duration-300 cursor-default overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-0 group-hover/badge:opacity-20 transition-opacity duration-300"
+        style={{ backgroundColor: hex }}
+      />
+      <div 
+        className="absolute inset-0 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 border rounded-md"
+        style={{ borderColor: hex }}
+      />
+      {icon === 'matplotlib' ? (
+        <LineChart className="w-4 h-4 shrink-0 relative z-10" style={{ color: hex }} />
+      ) : icon === 'seaborn' ? (
+        <BarChart className="w-4 h-4 shrink-0 relative z-10" style={{ color: hex }} />
+      ) : (
+        <img 
+          src={icon === 'openai' ? 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg' : `https://cdn.simpleicons.org/${icon}${color ? `/${color}` : ''}`} 
+          alt={name} 
+          className={`w-4 h-4 shrink-0 relative z-10 ${isInvertable ? 'dark:invert' : ''}`}
+        />
+      )}
+      <span className="max-w-0 overflow-hidden group-hover/badge:max-w-[120px] transition-all duration-300 relative z-10 flex items-center">
+        <span 
+          className="pl-2 text-[11px] font-semibold whitespace-nowrap opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300"
+          style={{ color: hex }}
+        >
+          {name}
+        </span>
+      </span>
+    </div>
+  )
+}
 
 export type DiagramData = { title?: string, chart: string, type: 'mermaid' | 'markmap' };
 
@@ -47,6 +86,19 @@ const projects = [
     ],
     diagrams: getDiagrams('examintel.md'),
     link: "https://examintel.in",
+    skills: [
+      { name: "Next.js", icon: "nextdotjs" },
+      { name: "React", icon: "react", color: "61DAFB" },
+      { name: "Tailwind CSS", icon: "tailwindcss", color: "06B6D4" },
+      { name: "Python", icon: "python", color: "3776AB" },
+      { name: "Django", icon: "django", color: "44B78B" },
+      { name: "PostgreSQL", icon: "postgresql", color: "4169E1" },
+      { name: "Redis", icon: "redis", color: "FF4438" },
+      { name: "Docker", icon: "docker", color: "2496ED" },
+      { name: "Celery", icon: "celery", color: "37814A" },
+      { name: "Langgraph", icon: "langgraph", color: "5464FB"},
+      { name: "Google GenAI", icon: "googlegemini", color: "EA4335"},
+    ]
   },
   {
     title: "Data Analysis Agent",
@@ -58,6 +110,14 @@ const projects = [
     ],
     diagrams: getDiagrams('data-analysis.md'),
     link: "https://tds-project-2-divyanshusaini.vercel.app/",
+    skills: [
+      { name: "Python", icon: "python", color: "3776AB" },
+      { name: "Scikit-learn", icon: "scikitlearn", color: "F7931E" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "Numpy", icon: "numpy" },
+      { name: "Matplotlib", icon: "matplotlib", color: "11557c" },
+      { name: "OpenAI", icon: "openai" },
+    ]
   },
   {
     title: "Whatsapp Chat Analyser",
@@ -69,6 +129,13 @@ const projects = [
     ],
     diagrams: getDiagrams('whatsapp-chat.md'),
     link: "https://whatsapp-chat-analysis-2fkvmkwj8vfszue-duehnxn.streamlit.app/",
+    skills: [
+      { name: "Python", icon: "python", color: "3776AB" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "Numpy", icon: "numpy" },
+      { name: "Matplotlib", icon: "matplotlib"},
+      { name: "Streamlit", icon: "streamlit", color: "FF4B4B" },
+    ]
   },
   {
     title: "LLM Agent",
@@ -80,6 +147,12 @@ const projects = [
     ],
     diagrams: getDiagrams('llm-agent.md'),
     link: "https://llm-agent-plum.vercel.app/",
+    skills: [
+      { name: "TypeScript", icon: "typescript", color: "3178C6" },
+      { name: "React", icon: "react", color: "61DAFB" },
+      { name: "Next.js", icon: "nextdotjs" },
+      { name: "OpenAI", icon: "openai" },
+    ]
   },
 ]
 
@@ -113,8 +186,8 @@ export function Projects() {
               {project.details && (
                 <ul className="mt-4 space-y-1.5">
                   {project.details.map((detail, index) => (
-                    <li key={index} className="font-serif text-[15px] leading-relaxed text-muted-foreground flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-[7px]" />
+                    <li key={index} className="font-serif text-[15px] leading-relaxed text-muted-foreground flex items-start gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-[9px]" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -122,6 +195,13 @@ export function Projects() {
               )}
               {project.diagrams && project.diagrams.length > 0 && (
                 <DiagramModal diagrams={project.diagrams} projectTitle={project.title} />
+              )}
+              {project.skills && project.skills.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-border/50">
+                  {project.skills.map((skill) => (
+                    <SkillBadge key={skill.name} {...skill} />
+                  ))}
+                </div>
               )}
             </div>
           </div>
