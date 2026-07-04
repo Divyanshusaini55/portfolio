@@ -51,10 +51,10 @@ export function Education() {
             <span className="text-primary font-mono font-semibold">skills:</span>
           </p>
           <div className="flex flex-wrap gap-2">
-            {["Python", "Java", "PyTorch","Scikit-learn","NumPy, Pandas", "HTML", "CSS","React","JavaScript", "SQL", "Django", "FastAPI","Git", "Docker", "GCP", "LLMs"].map((skill) => (
+            {["Python", "Java", "PyTorch","Scikit-learn","NumPy, Pandas", "HTML", "CSS","React","JavaScript", "SQL", "Django", "FastAPI", "Git", "Docker", "Postman", "GCP", "LLMs"].map((skill) => (
               <span 
                 key={skill}
-                className="font-mono text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                className="font-mono text-xs px-2 py-0.5 bg-secondary text-secondary-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
               >
                 {skill}
               </span>

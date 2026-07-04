@@ -7,13 +7,18 @@ export function Experience() {
       company: "Capri Global Capital Limited, Noida",
       duration: "Feb 2026 - Present",
       highlights: [
-        "𓀋",
+        <span key="badge" className="inline-flex items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.25 rounded-md bg-green-950/60 border border-green-900/50 text-green-50 text-xs font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_4px_#22c55e]" />
+            𓀋
+          </span>
+        </span>,
       ],
     },
   ]
 
   return (
-    <section className="mb-16">
+    <section id="experience" className="mb-16">
       <h2 className="text-xl font-sans font-medium mb-8 tracking-tight">
         <span className="text-primary">𖤊</span> Experience
       </h2>
@@ -36,8 +41,7 @@ export function Experience() {
               </p>
               <ul className="space-y-1.5">
                 {exp.highlights.map((highlight, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-[7px]" />
+                  <li key={index} className="text-sm text-muted-foreground flex items-start">
                     <span>{highlight}</span>
                   </li>
                 ))}

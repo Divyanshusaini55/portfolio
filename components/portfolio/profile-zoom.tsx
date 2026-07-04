@@ -6,9 +6,10 @@ import { X } from 'lucide-react'
 interface ProfileZoomProps {
     src: string
     alt: string
+    className?: string
 }
 
-export function ProfileZoom({ src, alt }: ProfileZoomProps) {
+export function ProfileZoom({ src, alt, className = "w-20 h-20" }: ProfileZoomProps) {
     const [isZoomed, setIsZoomed] = useState(false)
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
@@ -35,7 +36,7 @@ export function ProfileZoom({ src, alt }: ProfileZoomProps) {
             <button
                 type="button"
                 onClick={() => setIsZoomed(true)}
-                className="w-20 h-20 rounded-full overflow-hidden border border-border flex-shrink-0 bg-secondary cursor-zoom-in transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary"
+                className={`${className} rounded-full overflow-hidden border border-border flex-shrink-0 bg-secondary cursor-zoom-in transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary`}
                 aria-label="Zoom profile image"
             >
                 <img

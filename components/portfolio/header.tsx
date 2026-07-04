@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import Link from 'next/link'
-import { FileDown, Github, Linkedin, BookOpen } from 'lucide-react'
+import { FileDown, Github, Linkedin, BookOpen, Copy, Check, Home, Briefcase, FileText, Mail } from 'lucide-react'
 import { ProfileZoom } from './profile-zoom'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing'
@@ -20,11 +20,20 @@ const SOCIAL_LINKS = [
   },
 ] as const
 
+const NAV_LINKS = [
+  { label: 'Home', href: '/', Icon: Home },
+  { label: 'Work', href: '#experience', Icon: Briefcase },
+  { label: 'Notes', href: '/notes', Icon: BookOpen },
+  { label: 'Resume', href: '/resume', Icon: FileText },
+]
+
 export function Header() {
+  const [copied, setCopied] = useState(false)
+
   const playSound = useCallback(() => {
     try {
       const audio = new Audio('/fahhhhh.mp3')
-      audio.volume = 0.5 // Set reasonable default volume
+      audio.volume = 0.5
       audio.play().catch((error) => {
         console.warn('Failed to play sound:', error)
       })
@@ -33,69 +42,122 @@ export function Header() {
     }
   }, [])
 
+  const copyEmail = () => {
+    try {
+      if (navigator?.clipboard?.writeText) {
+        navigator.clipboard.writeText('divyanshusaini55@gmail.com')
+      } else {
+        const textArea = document.createElement("textarea")
+        textArea.value = 'divyanshusaini55@gmail.com'
+        document.body.appendChild(textArea)
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+      }
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy!', err)
+    }
+  }
+
   return (
     <header className="mb-16">
-      <div className="flex items-center justify-between mb-8">
-        {/* Profile Image */}
-        <ProfileZoom
-          src="/profile.png"
-          alt="Divyanshu Saini - Full Stack Developer"
-        />
-
-        {/* Social Links & Theme Toggle */}
-        <div className="flex gap-3 items-center">
+      {/* Top Nav Bar */}
+      <div className="flex items-center justify-between mb-12 md:mb-16">
+        <nav className="flex items-center gap-2 md:gap-3">
+          {NAV_LINKS.map(link => (
+            <Link 
+              key={link.label}
+              href={link.href}
+              className="group relative p-2 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-secondary/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label={link.label}
+            >
+              <link.Icon className="w-5 h-5" />
+              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[11px] font-medium rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none whitespace-nowrap z-50 shadow-md">
+                {link.label}
+              </span>
+            </Link>
+          ))}
+        </nav>
+        
+        <div className="flex gap-2 items-center">
           {SOCIAL_LINKS.map(({ href, label, Icon }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-primary transition-colors rounded-md hover:bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="group relative p-2 text-muted-foreground hover:text-primary transition-colors rounded-full hover:bg-secondary/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-label={`Visit my ${label} profile`}
-              title={label}
             >
               <Icon className="w-5 h-5" />
+              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[11px] font-medium rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none whitespace-nowrap z-50 shadow-md">
+                {label}
+              </span>
             </a>
           ))}
           <ThemeToggle />
         </div>
       </div>
 
-      {/* Main Heading */}
-      <h1 className="text-3xl md:text-4xl font-sans font-medium mb-4 tracking-tight">
-        divyanshu saini 𓀛
-      </h1>
-
-      {/* Role Description */}
-      <div className="flex items-center gap-2 text-muted-foreground mb-6">
-        <span className="text-primary font-mono text-sm">Software Engineer</span>
-        <span className="text-border">|</span>
-        <span className="font-mono text-sm">Machine Learning Enthusiast</span>
+      {/* Profile Section */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 mb-6">
+        <ProfileZoom
+          src="/profile.png"
+          alt="Divyanshu Saini"
+          className="w-24 h-24 sm:w-28 sm:h-28 ring-4 ring-background shadow-xl"
+        />
+        
+        <div className="flex flex-col">
+          <h1 className="text-2xl sm:text-3xl font-sans font-bold mb-2 tracking-tight text-foreground flex items-center gap-2">
+            divyanshu saini <span className="font-normal text-3xl sm:text-4xl">𓀛</span>
+          </h1>
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-muted-foreground text-sm sm:text-[15px]">
+            <span>Software Engineer</span>
+            <span className="text-border px-1">·</span>
+            <span>Machine Learning Enthusiast</span>
+            <span className="text-border px-1">·</span>
+            <button 
+              onClick={copyEmail}
+              className="group relative flex items-center justify-center p-1.5 -ml-1.5 rounded-full hover:bg-secondary/50 text-muted-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Copy email address"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-green-500" />
+              ) : (
+                <Mail className="w-4 h-4" />
+              )}
+              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-[11px] font-medium rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none whitespace-nowrap z-50 shadow-md">
+                {copied ? 'Copied!' : 'divyanshusai47@gmail.com'}
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-
+      
       {/* Introduction */}
-      <p className="text-muted-foreground leading-relaxed mb-6">
-        {"Here's my digital coordinates."}
+      <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
+        Here's my digital coordinates.
       </p>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap items-center gap-3 md:gap-4">
-        <a
-          href="/resume.pdf"
-          download="Divyanshu_Saini_Resume.pdf"
+      <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-8">
+        <Link
+          href="/resume"
           onClick={playSound}
-          className="group inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-md active:scale-95 font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
-          aria-label="Download my resume"
+          className="group inline-flex items-center gap-2 px-3 py-1 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          aria-label="View my resume"
         >
-          <FileDown className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
-          download resume
-        </a>
+          <FileText className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+          view resume
+        </Link>
         <Link
           href="/notes"
-          className="group inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-primary/25 active:scale-95 font-mono text-xs md:text-sm whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          className="group inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:ring-offset-2 focus:ring-offset-background"
           aria-label="View my notes"
         >
-          <BookOpen className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+          <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
           view notes
         </Link>
       </div>
