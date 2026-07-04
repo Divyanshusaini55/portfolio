@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, BookOpen, Copy, Check, Home, Briefcase, FileText, Mail } from 'lucide-react'
+import { Github, Linkedin, BookOpen, Check, Home, Briefcase, FileText, Mail } from 'lucide-react'
 import { ProfileZoom } from './profile-zoom'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing'
