@@ -22,7 +22,6 @@ const SOCIAL_LINKS = [
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', Icon: Home },
-  { label: 'Work', href: '#experience', Icon: Briefcase },
   { label: 'Notes', href: '/notes', Icon: BookOpen },
   { label: 'Resume', href: '/resume', Icon: FileText },
 ]
