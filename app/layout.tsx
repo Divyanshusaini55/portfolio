@@ -128,7 +128,7 @@ export default function RootLayout({
               },
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "IIT Madras"
+                "name": "Dr. APJ Abdul Kalam Technical University, Lucknow"
               },
               "sameAs": [
                 "https://github.com/Divyanshusaini55",
