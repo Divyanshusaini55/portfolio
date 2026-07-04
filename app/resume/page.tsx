@@ -53,8 +53,6 @@ export default function ResumePage() {
               <a href="https://linkedin.com/in/divyanshu47" className="hover:underline text-blue-800">Linkedin</a>
               <span>|</span>
               <a href="https://github.com/Divyanshusaini55" className="hover:underline text-blue-800">Github</a>
-              <span>|</span>
-              <a href="https://divyanshusaini.me" className="hover:underline text-blue-800">Web</a>
             </p>
           </div>
 
