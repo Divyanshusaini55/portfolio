@@ -94,7 +94,7 @@ export default function ClientShivPage() {
             className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 text-sm group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Portfolio
+            Back to Home
           </Link>
           {typingState !== 'done' && (
             <button 
