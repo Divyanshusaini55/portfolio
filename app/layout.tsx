@@ -113,6 +113,30 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Divyanshu Saini",
+              "url": "https://divyanshusaini.me",
+              "jobTitle": "Full Stack Software Engineer & ML Engineer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Capri Global Capital Limited"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "IIT Madras"
+              },
+              "sameAs": [
+                "https://github.com/Divyanshusaini55",
+                "https://linkedin.com/in/divyanshu47"
+              ]
+            })
+          }}
+        />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider
