@@ -10,7 +10,7 @@ import { Footer } from '@/components/portfolio/footer'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
+    absolute: 'Divyanshu Saini',
   },
   description: 'Divyanshu Saini is a Full Stack Software Engineer and Machine Learning Engineer from Noida, India. IIT Madras BS Data Science student. Building AI-powered applications with Django, Next.js, React, and Python.',
   openGraph: {
