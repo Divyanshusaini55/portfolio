@@ -9,15 +9,17 @@ import { Contact } from '@/components/portfolio/contact'
 import { Footer } from '@/components/portfolio/footer'
 
 export const metadata: Metadata = {
-  title: 'Divyanshu Saini - Full Stack Developer & ML Engineer | Portfolio',
+  title: {
+    absolute: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
+  },
   description: 'Divyanshu Saini is a Full Stack Software Engineer and Machine Learning Engineer from Noida, India. IIT Madras BS Data Science student. Building AI-powered applications with Django, Next.js, React, and Python.',
   openGraph: {
-    title: 'Divyanshu Saini - Full Stack Developer & ML Engineer | Portfolio',
+    title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Divyanshu Saini is a Full Stack Software Engineer and Machine Learning Engineer. Explore projects, experience, and skills.',
     url: '/',
   },
   twitter: {
-    title: 'Divyanshu Saini - Full Stack Developer & ML Engineer',
+    title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Divyanshu Saini is a Full Stack Software Engineer and Machine Learning Engineer from Noida, India.',
   },
 }
