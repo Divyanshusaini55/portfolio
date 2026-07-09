@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 }
 const getDomain = () => {
   const domain = process.env.NEXT_PUBLIC_DOMAIN
-  return domain || 'https://divyanshu-portfolio.pages.github.io'
+  return domain || 'https://divyanshusaini.me'
 }
 
 export const metadata: Metadata = {
@@ -116,25 +116,45 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Divyanshu Saini",
-              "url": "https://divyanshusaini.me",
-              "jobTitle": "Full Stack Software Engineer & ML Engineer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Capri Global Capital Limited"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Divyanshu Saini",
+                "givenName": "Divyanshu",
+                "familyName": "Saini",
+                "url": "https://divyanshusaini.me",
+                "image": "https://divyanshusaini.me/profile.png",
+                "description": "Full Stack Software Engineer and Machine Learning Engineer. B.Tech CSE(AIML) student and IIT Madras BS Data Science student.",
+                "jobTitle": "Full Stack Software Engineer & ML Engineer",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "Capri Global Capital Limited"
+                },
+                "alumniOf": [
+                  {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Indian Institute of Technology Madras"
+                  },
+                  {
+                    "@type": "CollegeOrUniversity",
+                    "name": "G L Bajaj Institute of Technology and Management"
+                  }
+                ],
+                "knowsAbout": ["Python", "JavaScript", "React", "Next.js", "Django", "Machine Learning", "Artificial Intelligence", "Data Science", "LLMs", "Full Stack Development"],
+                "sameAs": [
+                  "https://github.com/Divyanshusaini55",
+                  "https://linkedin.com/in/divyanshu47"
+                ]
               },
-              "alumniOf": {
-                "@type": "CollegeOrUniversity",
-                "name": "Dr. APJ Abdul Kalam Technical University, Lucknow"
-              },
-              "sameAs": [
-                "https://github.com/Divyanshusaini55",
-                "https://linkedin.com/in/divyanshu47"
-              ]
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Divyanshu Saini - Portfolio",
+                "url": "https://divyanshusaini.me",
+                "description": "Personal portfolio of Divyanshu Saini - Full Stack Developer & ML Engineer"
+              }
+            ])
           }}
         />
       </head>
