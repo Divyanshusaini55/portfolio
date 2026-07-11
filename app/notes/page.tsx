@@ -90,7 +90,7 @@ export default async function NotesIndex() {
             href="/" 
             className={styles.homeLink}
           >
-            ← portfolio
+            ← home
           </Link>
           <h1 className={`${styles.title} ${crimsonPro.className}`}>divyanshu saini</h1>
           <p className={styles.bio}>
