@@ -86,6 +86,12 @@ export default async function NotesIndex() {
     <div className={`${styles.pageContainer} ${cormorant.variable}`}>
       <div className={styles.contentWrapper}>
         <header className={styles.header}>
+          <Link 
+            href="/" 
+            className={styles.homeLink}
+          >
+            ← portfolio
+          </Link>
           <h1 className={`${styles.title} ${crimsonPro.className}`}>divyanshu saini</h1>
           <p className={styles.bio}>
             I study machine learning, deep learning, neural networks, ai <br/>

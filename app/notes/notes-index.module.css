@@ -13,6 +13,23 @@
 .header {
   text-align: center;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.homeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #a09682;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.homeLink:hover {
+  color: #333;
 }
 
 .title {
