@@ -30,7 +30,7 @@ export function Interests() {
           <span className="text-primary font-mono font-medium">𖦸 hate:</span>{" "}
           {hates.map((item, index) => (
             <span key={item}>
-              <span className="hover:line-through cursor-default transition-all">
+              <span className="line-through cursor-default transition-all">
                 {item}
               </span>
               {index < hates.length - 1 && ", "}
