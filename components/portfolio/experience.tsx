@@ -36,12 +36,12 @@ export function Experience() {
                   {exp.duration}
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground mb-3">
+              <p className="text-sm font-medium text-muted-foreground mb-3">
                 {exp.company}
               </p>
               <ul className="space-y-1.5">
                 {exp.highlights.map((highlight, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex items-start">
+                  <li key={index} className="text-sm font-medium text-muted-foreground flex items-start">
                     <span>{highlight}</span>
                   </li>
                 ))}

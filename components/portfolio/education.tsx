@@ -16,7 +16,7 @@ export function Education() {
               >
                 [B.Tech CSE(AIML)]
               </a>
-              <span className="font-mono text-xs text-muted-foreground">
+              <span className="font-mono text-xs font-medium text-muted-foreground">
                 2021 - 2025
               </span>
             </div>
@@ -36,7 +36,7 @@ export function Education() {
               >
                 [B.S (Data Science & Application)]
               </a>
-              <span className="font-mono text-xs text-muted-foreground">
+              <span className="font-mono text-xs font-medium text-muted-foreground">
                 2022 - 2026
               </span>
             </div>
@@ -47,14 +47,14 @@ export function Education() {
         </div>
         
         <div className="pl-6 mt-4">
-          <p className="text-sm text-muted-foreground mb-2">
+          <p className="text-sm font-medium text-muted-foreground mb-2">
             <span className="text-primary font-mono font-semibold">skills:</span>
           </p>
           <div className="flex flex-wrap gap-2">
             {["Python", "Java", "PyTorch","Scikit-learn","NumPy, Pandas", "HTML", "CSS","React","JavaScript", "SQL", "Django", "FastAPI", "Git", "Docker", "Postman", "GCP", "LLMs"].map((skill) => (
               <span 
                 key={skill}
-                className="font-mono text-xs px-2 py-0.5 bg-secondary text-secondary-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                className="font-mono text-xs font-medium px-2 py-0.5 bg-secondary text-secondary-foreground rounded hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
               >
                 {skill}
               </span>

@@ -18,7 +18,7 @@ export function Interests() {
 
   return (
     <section className="mb-16" id="interests">
-      <div className="space-y-4 text-sm text-muted-foreground">
+      <div className="space-y-4 text-sm font-medium text-muted-foreground">
         <p>
           <span className="text-primary font-mono font-medium">𖦸 interests:</span>{" "}
           <span className="leading-relaxed">
