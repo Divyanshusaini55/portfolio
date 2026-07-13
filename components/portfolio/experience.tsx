@@ -8,8 +8,8 @@ export function Experience() {
       duration: "Feb 2026 - Present",
       highlights: [
         <span key="badge" className="inline-flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-primary/5 border border-primary/20 text-primary text-xs font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary/70 animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground border border-border/50 text-xs font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_4px_rgba(var(--primary),0.5)]" />
             𓀋
           </span>
         </span>,
