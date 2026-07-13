@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { spaceGrotesk, crimsonPro, jetbrainsMono } from './fonts'
+import { azeretMono, crimsonPro, jetbrainsMono } from './fonts'
 import { OnekoLoader } from './oneko-loader'
 import { ThemeProvider } from '@/components/theme-provider'
 import './global.css'
@@ -105,7 +105,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en"
-      className={`${spaceGrotesk.variable} ${crimsonPro.variable} ${jetbrainsMono.variable}`}
+      className={`${azeretMono.variable} ${crimsonPro.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
