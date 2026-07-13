@@ -180,13 +180,13 @@ export function Projects() {
                 [{project.title}]
                 <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-              <p className="font-serif text-base leading-relaxed text-muted-foreground mt-2">
+              <p className="font-serif text-base font-medium leading-relaxed text-muted-foreground mt-2">
                 {project.description}
               </p>
               {project.details && (
                 <ul className="mt-4 space-y-1.5">
                   {project.details.map((detail, index) => (
-                    <li key={index} className="font-serif text-[15px] leading-relaxed text-muted-foreground flex items-start gap-2.5">
+                    <li key={index} className="font-serif font-medium text-[15px] leading-relaxed text-muted-foreground flex items-start gap-2.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary/60 flex-shrink-0 mt-[9px]" />
                       <span>{detail}</span>
                     </li>
@@ -214,10 +214,10 @@ export function Projects() {
         rel="noopener noreferrer"
         className="block group mt-8 p-5 bg-secondary/30 rounded-2xl border border-transparent transition-all duration-300 hover:bg-secondary/50 hover:shadow-sm hover:-translate-y-1 hover:border-border/50"
       >
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm font-medium text-muted-foreground">
           <span className="text-primary font-mono">*</span> pieces {"I'm"} developing
         </p>
-        <div className="inline-flex items-center gap-2 mt-2 font-mono text-sm text-foreground group-hover:text-primary transition-colors">
+        <div className="inline-flex items-center gap-2 mt-2 font-mono font-medium text-sm text-foreground group-hover:text-primary transition-colors">
           [Explore GitHub]
           <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </div>
