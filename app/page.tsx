@@ -35,7 +35,7 @@ export default function Home() {
         <FadeIn delay={0.2}>
           <About />
         </FadeIn>
-        <FadeIn>
+        <FadeIn delay={0.3}>
           <Education />
         </FadeIn>
         <FadeIn>

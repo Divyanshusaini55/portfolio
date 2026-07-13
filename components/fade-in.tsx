@@ -11,10 +11,10 @@ interface FadeInProps {
 
 export function FadeIn({ children, delay = 0, direction = 'up' }: FadeInProps) {
   const directions = {
-    up: { y: 20, x: 0 },
-    down: { y: -20, x: 0 },
-    left: { x: 20, y: 0 },
-    right: { x: -20, y: 0 },
+    up: { y: 40, x: 0 },
+    down: { y: -40, x: 0 },
+    left: { x: 40, y: 0 },
+    right: { x: -40, y: 0 },
     none: { x: 0, y: 0 },
   }
 
@@ -22,11 +22,11 @@ export function FadeIn({ children, delay = 0, direction = 'up' }: FadeInProps) {
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-10px" }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{
-        duration: 0.4,
+        duration: 0.7,
         delay,
-        ease: "easeOut",
+        ease: [0.22, 1, 0.36, 1],
       }}
     >
       {children}
