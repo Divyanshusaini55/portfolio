@@ -1,10 +1,10 @@
 import { 
-  Azeret_Mono, 
+  Space_Grotesk, 
   Crimson_Pro, 
   JetBrains_Mono 
 } from 'next/font/google'
 
-export const azeretMono = Azeret_Mono({ 
+export const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
