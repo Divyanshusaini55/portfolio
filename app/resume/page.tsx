@@ -29,7 +29,7 @@ export default function ResumePage() {
         {/* Header Section */}
         <FadeIn>
           <div className="flex flex-row items-center justify-between mb-8 sm:mb-12">
-            <h1 className="text-2xl md:text-2xl font-sans font-bold tracking-tight">
+            <h1 className="text-xl md:text-xl font-sans font-bold tracking-tight">
               Resume
             </h1>
             <a
@@ -37,7 +37,7 @@ export default function ResumePage() {
               download="divyanshu_saini_resume.pdf"
               className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-all duration-300 hover:shadow-md hover:shadow-primary/25 hover:-translate-y-0.5 active:scale-95"
             >
-              <Download className="w-4 h-4" />
+              <Download className="w-3 h-3" />
             </a>
           </div>
         </FadeIn>
