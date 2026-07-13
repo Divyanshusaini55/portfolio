@@ -44,10 +44,10 @@ export function Header() {
   const copyEmail = () => {
     try {
       if (navigator?.clipboard?.writeText) {
-        navigator.clipboard.writeText('divyanshusaini55@gmail.com')
+        navigator.clipboard.writeText('divyanshusai47@gmail.com')
       } else {
         const textArea = document.createElement("textarea")
-        textArea.value = 'divyanshusaini55@gmail.com'
+        textArea.value = 'divyanshusai47@gmail.com'
         document.body.appendChild(textArea)
         textArea.select()
         document.execCommand('copy')
@@ -137,7 +137,7 @@ export function Header() {
       
       {/* Introduction */}
       <p className="text-muted-foreground font-medium leading-relaxed mb-8 max-w-lg">
-        Here's my digital coordinates.
+        here's my digital coordinates.
       </p>
 
       {/* Action Buttons */}

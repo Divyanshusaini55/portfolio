@@ -10,14 +10,14 @@ export function About() {
 
       <div className="space-y-4 text-muted-foreground font-medium leading-relaxed">
         <p>
-          B.Tech CSE graduate and currently pursuing B.S. (Online) from IIT Madras. I work in 
-          Machine Learning, Artificial Intelligence, LLMs, and Data Science to turn ideas into 
+          B.Tech CSE graduate and currently pursuing B.S. (online) from IIT Madras. I work in 
+          machine learning, artificial intelligence, llms, and data science to turn ideas into 
           intelligent systems and data-driven solutions. Always up for building something interesting 
           — feel free to reach out!
         </p>
 
         <p>
-          An introvert who finds beauty in minimalism.
+          an introvert who finds beauty in minimalism.
         </p>
 
         <div className="font-mono font-medium text-sm space-y-1 pl-4 border-l-2 border-border">
