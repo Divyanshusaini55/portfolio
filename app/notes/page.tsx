@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import { Cormorant_Garamond, Crimson_Pro } from 'next/font/google';
 import { Metadata } from 'next';
+import { FadeIn } from '@/components/fade-in';
 import styles from './notes-index.module.css';
 
 export const metadata: Metadata = {
@@ -85,54 +86,62 @@ export default async function NotesIndex() {
   return (
     <div className={`${styles.pageContainer} ${cormorant.variable}`}>
       <div className={styles.contentWrapper}>
-        <header className={styles.header}>
-          <Link 
-            href="/" 
-            className={styles.homeLink}
-          >
-            ← home
-          </Link>
-          <h1 className={`${styles.title} ${crimsonPro.className}`}>divyanshu saini</h1>
-          <p className={styles.bio}>
-            I study machine learning, deep learning, neural networks, ai <br/>
-            and their underlying mathematics.
-          </p>
-        </header>
-
-        <div className={styles.sectionDivider}>Blogs</div>
-
-        <div className={styles.blogsList}>
-          {blogs.map(blog => (
-            <Link key={blog.slug} href={`/notes/${blog.slug}`} className={styles.blogItem}>
-              <div className={styles.blogInfo}>
-                <h3 className={`${styles.blogTitle} ${cormorant.className}`}>{blog.title}</h3>
-                <p className={styles.blogDesc}>{blog.description}</p>
-              </div>
-              {/* <div className={styles.blogStats}> ... omitted as requested ... </div> */}
+        <FadeIn delay={0.1}>
+          <header className={styles.header}>
+            <Link 
+              href="/" 
+              className={styles.homeLink}
+            >
+              ← home
             </Link>
-          ))}
-        </div>
+            <h1 className={`${styles.title} ${crimsonPro.className}`}>divyanshu saini</h1>
+            <p className={styles.bio}>
+              I study machine learning, deep learning, neural networks, ai <br/>
+              and their underlying mathematics.
+            </p>
+          </header>
+        </FadeIn>
 
-        <div className={styles.sectionDivider}>PYTORCH IMPLEMENTATIONS</div>
+        <FadeIn delay={0.2}>
+          <div className={styles.sectionDivider}>Blogs</div>
 
-        <div className={styles.implementationsGrid}>
-          {implementations.map((impl, index) => (
-            <Link key={index} href="#" className={`${styles.implButton} ${cormorant.className}`}>
-              {impl}
-            </Link>
-          ))}
-        </div>
+          <div className={styles.blogsList}>
+            {blogs.map(blog => (
+              <Link key={blog.slug} href={`/notes/${blog.slug}`} className={styles.blogItem}>
+                <div className={styles.blogInfo}>
+                  <h3 className={`${styles.blogTitle} ${cormorant.className}`}>{blog.title}</h3>
+                  <p className={styles.blogDesc}>{blog.description}</p>
+                </div>
+                {/* <div className={styles.blogStats}> ... omitted as requested ... </div> */}
+              </Link>
+            ))}
+          </div>
+        </FadeIn>
 
-        <div className={styles.sectionDivider}>NOTES</div>
+        <FadeIn delay={0.3}>
+          <div className={styles.sectionDivider}>PYTORCH IMPLEMENTATIONS</div>
 
-        <div className={styles.notesImageContainer}>
-          <img 
-            src="/images/notes.png" 
-            alt="Handwritten math notes" 
-            className={styles.notesImage} 
-            style={{ maxWidth: '250px' }}
-          />
-        </div>
+          <div className={styles.implementationsGrid}>
+            {implementations.map((impl, index) => (
+              <Link key={index} href="#" className={`${styles.implButton} ${cormorant.className}`}>
+                {impl}
+              </Link>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.4}>
+          <div className={styles.sectionDivider}>NOTES</div>
+
+          <div className={styles.notesImageContainer}>
+            <img 
+              src="/images/notes.png" 
+              alt="Handwritten math notes" 
+              className={styles.notesImage} 
+              style={{ maxWidth: '250px' }}
+            />
+          </div>
+        </FadeIn>
       </div>
     </div>
   );

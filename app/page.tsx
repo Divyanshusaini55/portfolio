@@ -7,6 +7,7 @@ import { Projects } from '@/components/portfolio/projects'
 import { Interests } from '@/components/portfolio/interests'
 import { Contact } from '@/components/portfolio/contact'
 import { Footer } from '@/components/portfolio/footer'
+import { FadeIn } from '@/components/fade-in'
 
 export const metadata: Metadata = {
   title: {
@@ -28,14 +29,30 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <div className="max-w-2xl mx-auto px-6 py-12 md:py-20">
-        <Header />
-        <About />
-        <Education />
-        <Experience />
-        <Projects />
-        <Interests />
-        <Contact />
-        <Footer />
+        <FadeIn delay={0.1}>
+          <Header />
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <About />
+        </FadeIn>
+        <FadeIn delay={0.3}>
+          <Education />
+        </FadeIn>
+        <FadeIn delay={0.4}>
+          <Experience />
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <Projects />
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <Interests />
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <Contact />
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <Footer />
+        </FadeIn>
       </div>
     </main>
   )
