@@ -8,7 +8,7 @@ export function About() {
         <span>About</span>
       </h2>
 
-      <div className="space-y-4 text-muted-foreground leading-relaxed">
+      <div className="space-y-4 text-muted-foreground font-medium leading-relaxed">
         <p>
           B.Tech CSE graduate and currently pursuing B.S. (Online) from IIT Madras. I work in 
           Machine Learning, Artificial Intelligence, LLMs, and Data Science to turn ideas into 
@@ -20,7 +20,7 @@ export function About() {
           An introvert who finds beauty in minimalism.
         </p>
 
-        <div className="font-mono text-sm space-y-1 pl-4 border-l-2 border-border">
+        <div className="font-mono font-medium text-sm space-y-1 pl-4 border-l-2 border-border">
           <p className="text-muted-foreground/80">
             <span aria-hidden="true">{">"}</span> from local, got lost in localhost
           </p>

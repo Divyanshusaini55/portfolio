@@ -112,7 +112,7 @@ export function Header() {
           <h1 className="text-2xl sm:text-3xl font-sans font-bold mb-2 tracking-tight text-foreground flex items-center gap-2">
             divyanshu saini <span className="font-normal text-3xl sm:text-4xl">𓀛</span>
           </h1>
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-muted-foreground text-sm sm:text-[15px]">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-muted-foreground font-medium text-sm sm:text-[15px]">
             <span>Software Engineer</span>
             <span className="text-border px-1">·</span>
             <span>Machine Learning Enthusiast</span>
@@ -136,7 +136,7 @@ export function Header() {
       </div>
       
       {/* Introduction */}
-      <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
+      <p className="text-muted-foreground font-medium leading-relaxed mb-8 max-w-lg">
         Here's my digital coordinates.
       </p>
 
