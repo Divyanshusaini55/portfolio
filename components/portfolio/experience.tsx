@@ -29,7 +29,7 @@ export function Experience() {
             <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
             <div className="flex-1">
               <div className="flex items-start justify-between gap-2 mb-1">
-                <h3 className="font-mono text-sm text-foreground group-hover:text-primary transition-colors">
+                <h3 className="font-mono text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                   {exp.role}
                 </h3>
                 <span className="font-mono font-semibold text-xs text-muted-foreground whitespace-nowrap">

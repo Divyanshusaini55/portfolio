@@ -12,7 +12,7 @@ export function Education() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <a 
                 href="#"
-                className="font-mono text-sm text-foreground group-hover:text-primary transition-colors"
+                className="font-mono text-sm font-medium text-foreground group-hover:text-primary transition-colors"
               >
                 [B.Tech CSE(AIML)]
               </a>
@@ -32,7 +32,7 @@ export function Education() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <a 
                 href="#"
-                className="font-mono text-sm text-foreground group-hover:text-primary transition-colors"
+                className="font-mono text-sm font-medium text-foreground group-hover:text-primary transition-colors"
               >
                 [B.S (Data Science & Application)]
               </a>
