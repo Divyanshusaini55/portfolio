@@ -35,22 +35,22 @@ export default function Home() {
         <FadeIn delay={0.2}>
           <About />
         </FadeIn>
-        <FadeIn delay={0.3}>
+        <FadeIn>
           <Education />
         </FadeIn>
-        <FadeIn delay={0.4}>
+        <FadeIn>
           <Experience />
         </FadeIn>
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <Projects />
         </FadeIn>
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <Interests />
         </FadeIn>
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <Contact />
         </FadeIn>
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <Footer />
         </FadeIn>
       </div>

@@ -102,7 +102,7 @@ export default async function NotesIndex() {
           </header>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
+        <FadeIn>
           <div className={styles.sectionDivider}>Blogs</div>
 
           <div className={styles.blogsList}>
@@ -118,7 +118,7 @@ export default async function NotesIndex() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.3}>
+        <FadeIn>
           <div className={styles.sectionDivider}>PYTORCH IMPLEMENTATIONS</div>
 
           <div className={styles.implementationsGrid}>
@@ -130,7 +130,7 @@ export default async function NotesIndex() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.4}>
+        <FadeIn>
           <div className={styles.sectionDivider}>NOTES</div>
 
           <div className={styles.notesImageContainer}>

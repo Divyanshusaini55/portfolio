@@ -14,7 +14,7 @@ export default function ResumePage() {
       <div className="w-full max-w-[794px] mx-auto px-4 sm:px-6 py-12 md:py-20">
 
         {/* Top Navigation */}
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <div className="mb-12">
             <Link
               href="/"
@@ -27,7 +27,7 @@ export default function ResumePage() {
         </FadeIn>
 
         {/* Header Section */}
-        <FadeIn delay={0.2}>
+        <FadeIn>
           <div className="flex flex-row items-center justify-between mb-8 sm:mb-12">
             <h1 className="text-2xl md:text-2xl font-sans font-bold tracking-tight">
               Resume
@@ -43,7 +43,7 @@ export default function ResumePage() {
         </FadeIn>
 
         {/* HYBRID MEME RESUME CONTAINER */}
-        <FadeIn delay={0.3}>
+        <FadeIn>
           <div className="w-full max-w-[794px] mx-auto aspect-[210/297] bg-white p-4 sm:p-6 md:p-10 rounded-sm shadow-2xl flex flex-col relative overflow-hidden border border-gray-200 font-serif text-gray-900">
 
             {/* Resume Header */}

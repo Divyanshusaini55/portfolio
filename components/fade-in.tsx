@@ -22,11 +22,11 @@ export function FadeIn({ children, delay = 0, direction = 'up' }: FadeInProps) {
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-10px" }}
       transition={{
-        duration: 0.5,
+        duration: 0.4,
         delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: "easeOut",
       }}
     >
       {children}
