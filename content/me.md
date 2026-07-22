@@ -1,6 +1,6 @@
 ---
 title: "its me"
-description: ""
+description: "curious about polymathy, persuasion"
 author: divyanshu saini
 order: 5
 image: "/images/me.png"
