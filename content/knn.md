@@ -3,8 +3,8 @@ title: "K-Nearest Neighbors (KNN)"
 description: "From First Principles to Production: The Complete Guide to K-Nearest Neighbors"
 author: divyanshu saini
 authorLink: https://divyanshusaini.me
-order: 5
-image: "/images/knn.png"
+order: 1
+image: "/images/kn.png"
 ---
 #### from the paper, Nearest Neighbor Pattern Classification by: [Thomas M. Cover and Peter E. Hart](https://doi.org/10.1109/TIT.1967.1053964) — IEEE Transactions on Information Theory, 1967
 

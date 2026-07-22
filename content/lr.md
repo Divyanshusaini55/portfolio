@@ -3,7 +3,8 @@ title: "Linear Regression"
 description: "From First Principles to Production: The Complete Guide to Linear Regression"
 author: divyanshu saini
 authorLink: https://divyanshusaini.me
-order: 6
+order: 2
+image: "/images/lr.png"
 ---
 #### from the paper, Regression Towards Mediocrity in Hereditary Stature by: [Sir Francis Galton](https://doi.org/10.2307/2841583) — Journal of the Anthropological Institute, 1886
 ---
