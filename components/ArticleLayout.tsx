@@ -10,12 +10,19 @@ import styles from './article.module.css';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/atom-one-dark.css'; 
 import Mermaid from './Mermaid';
+import { Tiro_Devanagari_Hindi } from 'next/font/google';
 
 const crimsonPro = Crimson_Pro({ 
   subsets: ['latin'], 
   weight: ['300', '400', '600'],
   style: ['normal', 'italic'],
   variable: '--font-crimson-pro',
+});
+
+const tiroHindi = Tiro_Devanagari_Hindi({
+  weight: '400',
+  subsets: ['devanagari'],
+  variable: '--font-tiro-hindi',
 });
 
 const cormorantGaramond = Cormorant_Garamond({ 
@@ -47,7 +54,7 @@ export default function ArticleLayout({
   image
 }: ArticleLayoutProps) {
   return (
-    <div className={`${styles.articleContainer} ${crimsonPro.className} ${cormorantGaramond.variable} ${jetbrainsMono.variable}`}>
+    <div className={`${styles.articleContainer} ${crimsonPro.variable} ${cormorantGaramond.variable} ${jetbrainsMono.variable} ${tiroHindi.variable}`}>
       <div className={styles.bookContainer}>
         {image && (
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -90,6 +97,22 @@ export default function ArticleLayout({
                 h4: ({node, ...props}) => <h4 style={{ fontFamily: 'var(--font-cormorant), serif' }} {...props} />,
                 h5: ({node, ...props}) => <h5 style={{ fontFamily: 'var(--font-cormorant), serif' }} {...props} />,
                 h6: ({node, ...props}) => <h6 style={{ fontFamily: 'var(--font-cormorant), serif' }} {...props} />,
+                li: ({node, children, ...props}) => {
+                  let isSignature = false;
+                  const firstChild = Array.isArray(children) ? children[0] : children;
+                  if (typeof firstChild === 'string') {
+                    const text = firstChild.trim();
+                    if (text.startsWith('- ') || text.startsWith('--') || text.startsWith('—')) {
+                      isSignature = true;
+                    }
+                  }
+                  
+                  if (isSignature) {
+                    return <li {...props} style={{ textAlign: 'right', fontStyle: 'italic', paddingRight: '1rem', marginTop: '1rem', listStyle: 'none' }}>{children}</li>;
+                  }
+                  
+                  return <li {...props}>{children}</li>;
+                },
                 code: ({node, className, children, ...props}) => {
                   const match = /language-(\w+)/.exec(className || '');
                   if (match && match[1] === 'mermaid') {
@@ -98,6 +121,19 @@ export default function ArticleLayout({
                   return <code className={`${className || ''} ${jetbrainsMono.className}`} {...props}>{children}</code>;
                 },
                 p: ({node, children, ...props}) => {
+                  let isSignature = false;
+                  const firstChild = Array.isArray(children) ? children[0] : children;
+                  if (typeof firstChild === 'string') {
+                    const text = firstChild.trim();
+                    if (text.startsWith('- ') || text.startsWith('--') || text.startsWith('—')) {
+                      isSignature = true;
+                    }
+                  }
+                  
+                  if (isSignature) {
+                    return <p {...props} style={{ textAlign: 'right', fontStyle: 'italic', paddingRight: '1rem', marginTop: '1rem' }}>{children}</p>;
+                  }
+                  
                   return <p {...props}>{children}</p>;
                 }
               }}

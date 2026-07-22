@@ -11,6 +11,7 @@
 
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    font-family: var(--font-crimson-pro), var(--font-tiro-hindi), serif;
     line-height: 1.75;
     font-size: 18px;
     font-weight: 400;
