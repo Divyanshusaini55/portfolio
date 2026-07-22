@@ -6,9 +6,6 @@ order: 5
 image: "/images/me.png"
 ---
 
-curious about polymathy, persuasion
-
-
 &nbsp;
 
 *vo to ḳhush-bū hai havāoñ meñ bikhar jāegā*  
