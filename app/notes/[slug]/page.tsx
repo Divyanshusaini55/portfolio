@@ -30,7 +30,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     
     const title = data.title || data.Title || 'Article';
     const description = data.description || data.Description || 'Read this article by Divyanshu Saini';
-    const image = data.image || data.Image || '/images/hope.png';
+    let image = data.image || data.Image;
+    if (!image) {
+      const slugImagePath = path.join(process.cwd(), 'public', 'images', `${slug}.png`);
+      try {
+        await fs.access(slugImagePath);
+        image = `/images/${slug}.png`;
+      } catch {
+        image = '/images/hope.png';
+      }
+    }
     const domain = process.env.NEXT_PUBLIC_DOMAIN || 'https://divyanshusaini.me';
 
     return {
@@ -82,7 +91,16 @@ export default async function NotePage({ params }: { params: { slug: string } })
   const author = data.author || data.Author || 'divyanshu saini'; 
   const authorLink = data.authorLink || data.AuthorLink || 'https://divyanshusaini.me';
 
-  const image = data.image || data.Image || '/images/hope.png';
+  let image = data.image || data.Image;
+  if (!image) {
+    const slugImagePath = path.join(process.cwd(), 'public', 'images', `${slug}.png`);
+    try {
+      await fs.access(slugImagePath);
+      image = `/images/${slug}.png`;
+    } catch {
+      image = '/images/hope.png';
+    }
+  }
 
   return (
     <ArticleLayout
