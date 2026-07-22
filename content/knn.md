@@ -4,7 +4,7 @@ description: "From First Principles to Production: The Complete Guide to K-Neare
 author: divyanshu saini
 authorLink: https://divyanshusaini.me
 order: 1
-image: "/images/kn.jpg"
+image: "/images/kn.png"
 ---
 #### from the paper, Nearest Neighbor Pattern Classification by: [Thomas M. Cover and Peter E. Hart](https://doi.org/10.1109/TIT.1967.1053964) — IEEE Transactions on Information Theory, 1967
 
