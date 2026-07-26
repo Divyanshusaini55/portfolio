@@ -1,0 +1,473 @@
+{
+  "sections": [
+    {
+      "id": "probability-stats",
+      "title": "Probability & Statistics",
+      "iconName": "Calculator",
+      "subtopics": [
+        {
+          "id": "ps-1",
+          "name": "Permutations & Combinations",
+          "status": "not-started",
+          "revisions": 0,
+          "notes": "its done "
+        },
+        {
+          "id": "ps-2",
+          "name": "Probability Axioms & Sample Space",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-3",
+          "name": "Conditional Probability & Bayes Theorem",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-4",
+          "name": "Random Variables (Discrete & Continuous)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-5",
+          "name": "PMF, PDF, and CDF",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-6",
+          "name": "Expectation, Variance, & Moments",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-7",
+          "name": "Joint & Marginal Distributions",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-8",
+          "name": "Standard Distributions (Uniform, Normal, Exponential)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-9",
+          "name": "Discrete Distributions (Binomial, Poisson, Bernoulli)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-10",
+          "name": "Central Limit Theorem & Law of Large Numbers",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-11",
+          "name": "Hypothesis Testing (Null & Alternate)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-12",
+          "name": "z-test, t-test, and Chi-Square Test",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ps-13",
+          "name": "Confidence Intervals & Covariance",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "linear-algebra-calculus",
+      "title": "Linear Algebra & Calculus",
+      "iconName": "Binary",
+      "subtopics": [
+        {
+          "id": "lac-1",
+          "name": "Vector Spaces & Subspaces",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-2",
+          "name": "Linear Independence & Basis",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-3",
+          "name": "Matrices, Determinants, & Inverse",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-4",
+          "name": "Systems of Linear Equations (AX = B)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-5",
+          "name": "Eigenvalues & Eigenvectors",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-6",
+          "name": "LU Decomposition & Orthogonality",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-7",
+          "name": "Singular Value Decomposition (SVD)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-8",
+          "name": "Limits, Continuity, & Differentiability",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-9",
+          "name": "Derivatives & Partial Derivatives",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-10",
+          "name": "Maxima & Minima (Unconstrained & Constrained)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-11",
+          "name": "Taylor Series Expansion",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "lac-12",
+          "name": "Optimization & Gradient Descent",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "dsa",
+      "title": "Data Structures & Algorithms",
+      "iconName": "Code",
+      "subtopics": [
+        {
+          "id": "dsa-1",
+          "name": "Arrays, Stacks, & Queues",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-2",
+          "name": "Linked Lists (Singly, Doubly, Circular)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-3",
+          "name": "Binary Trees & Binary Search Trees (BST)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-4",
+          "name": "Heaps & Priority Queues",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-5",
+          "name": "Graph Representations (Adjacency Matrix/List)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-6",
+          "name": "Searching & Sorting Algorithms",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-7",
+          "name": "Asymptotic Analysis (Big-O, Omega, Theta)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-8",
+          "name": "Divide & Conquer Paradigm",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-9",
+          "name": "Greedy Algorithms",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-10",
+          "name": "Dynamic Programming",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dsa-11",
+          "name": "Graph Traversals (BFS & DFS)",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "dbms",
+      "title": "DBMS & Data Warehousing",
+      "iconName": "Database",
+      "subtopics": [
+        {
+          "id": "dbms-1",
+          "name": "ER-Model & Functional Dependencies",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-2",
+          "name": "Relational Model & Relational Algebra",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-3",
+          "name": "SQL Queries, Joins, & Subqueries",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-4",
+          "name": "Normalization (1NF, 2NF, 3NF, BCNF)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-5",
+          "name": "Transactions & ACID Properties",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-6",
+          "name": "Concurrency Control & Locking",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-7",
+          "name": "Data Warehousing Concepts",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-8",
+          "name": "Dimensional Modeling (Star & Snowflake Schema)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "dbms-9",
+          "name": "OLAP Operations (Slice, Dice, Roll-up, Drill-down)",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "title": "Machine Learning",
+      "iconName": "Brain",
+      "subtopics": [
+        {
+          "id": "ml-1",
+          "name": "Supervised vs Unsupervised vs Reinforcement",
+          "status": "not-started",
+          "revisions": 0,
+          "notes": "fbiri"
+        },
+        {
+          "id": "ml-2",
+          "name": "Linear Regression & Ridge/Lasso Regularization",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-3",
+          "name": "Logistic Regression & Classification Metrics",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-4",
+          "name": "Decision Trees & Random Forests",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-5",
+          "name": "Naive Bayes Classifier",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-6",
+          "name": "Support Vector Machines (SVM & Kernels)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-7",
+          "name": "k-Nearest Neighbors (k-NN)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-8",
+          "name": "k-Means & Hierarchical Clustering",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-9",
+          "name": "Principal Component Analysis (PCA)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-10",
+          "name": "Perceptron & Multilayer Perceptrons (MLP)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-11",
+          "name": "Backpropagation Algorithm",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-12",
+          "name": "Loss Functions & Activation Functions",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ml-13",
+          "name": "Overfitting, Underfitting, & Cross-Validation",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "artificial-intelligence",
+      "title": "Artificial Intelligence",
+      "iconName": "Cpu",
+      "subtopics": [
+        {
+          "id": "ai-1",
+          "name": "Uninformed Search (BFS, DFS, Uniform Cost)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-2",
+          "name": "Informed Search (A* Search & Heuristics)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-3",
+          "name": "Adversarial Search (Minimax & Alpha-Beta Pruning)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-4",
+          "name": "Propositional Logic & Equivalence",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-5",
+          "name": "First-Order Logic & Quantification",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-6",
+          "name": "Inference Rules & Resolution",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ai-7",
+          "name": "Knowledge Representation",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    },
+    {
+      "id": "general-aptitude",
+      "title": "General Aptitude",
+      "iconName": "Sparkles",
+      "subtopics": [
+        {
+          "id": "ga-1",
+          "name": "Verbal Ability & Grammar",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ga-2",
+          "name": "Quantitative Aptitude (Data Interpretation)",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ga-3",
+          "name": "Analytical Aptitude & Deduction",
+          "status": "not-started",
+          "revisions": 0
+        },
+        {
+          "id": "ga-4",
+          "name": "Spatial Aptitude (Patterns & Transformations)",
+          "status": "not-started",
+          "revisions": 0
+        }
+      ]
+    }
+  ],
+  "mockTests": [],
+  "targetYear": 2027,
+  "lastUpdated": "2026-07-26T21:31:02.556Z",
+  "messages": []
+}

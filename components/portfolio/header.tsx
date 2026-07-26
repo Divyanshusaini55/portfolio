@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, BookOpen, Check, Home, FileText, Mail } from 'lucide-react'
+import { Github, Linkedin, BookOpen, Check, Home, FileText, Mail, MessageSquare, X, Send, Loader2 } from 'lucide-react'
 import { ProfileZoom } from './profile-zoom'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing'
@@ -28,6 +28,12 @@ const NAV_LINKS = [
 
 export function Header() {
   const [copied, setCopied] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [senderName, setSenderName] = useState('')
+  const [messageContent, setMessageContent] = useState('')
+  const [isSending, setIsSending] = useState(false)
+  const [sendSuccess, setSendSuccess] = useState(false)
+  const [sendError, setSendError] = useState('')
 
   const playSound = useCallback(() => {
     try {
@@ -57,6 +63,36 @@ export function Header() {
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
       console.error('Failed to copy!', err)
+    }
+  }
+
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!messageContent.trim()) return
+
+    setIsSending(true)
+    setSendError('')
+
+    try {
+      const res = await fetch('/api/gate-tracker?action=send-public-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          senderName: senderName.trim() || 'Anonymous Visitor',
+          content: messageContent.trim()
+        })
+      })
+
+      if (res.ok) {
+        setSendSuccess(true)
+      } else {
+        const data = await res.json()
+        setSendError(data.error || 'Failed to send message')
+      }
+    } catch {
+      setSendError('Connection error. Please try again.')
+    } finally {
+      setIsSending(false)
     }
   }
 
@@ -159,9 +195,124 @@ export function Header() {
           <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
           view notes
         </Link>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="group inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-all duration-300 hover:-translate-y-0.5 active:scale-95 font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          aria-label="Send message"
+        >
+          <MessageSquare className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+          send message
+        </button>
       </div>
 
       <SpotifyNowPlaying />
+
+      {/* Message Modal Dialog */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="relative w-full max-w-md bg-background border border-border rounded-xl p-6 shadow-2xl space-y-4 text-foreground">
+            <div className="flex items-center justify-between border-b border-border pb-3">
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-5 h-5 text-primary" />
+                <h3 className="font-semibold text-foreground text-base">Send me a message</h3>
+              </div>
+              <button
+                onClick={() => {
+                  setIsModalOpen(false)
+                  setSendSuccess(false)
+                  setSendError('')
+                }}
+                className="p-1 text-muted-foreground hover:text-foreground rounded-md transition"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {sendSuccess ? (
+              <div className="py-6 text-center space-y-3">
+                <div className="w-12 h-12 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h4 className="font-semibold text-foreground text-sm">Message Sent!</h4>
+                <p className="text-muted-foreground text-xs font-mono">
+                  Thank you! Your note has been delivered to my private space.
+                </p>
+                <button
+                  onClick={() => {
+                    setIsModalOpen(false)
+                    setSendSuccess(false)
+                    setSenderName('')
+                    setMessageContent('')
+                  }}
+                  className="mt-2 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-md hover:opacity-90 transition"
+                >
+                  Done
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSendMessage} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1">
+                    Your Name or Contact (optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={senderName}
+                    onChange={(e) => setSenderName(e.target.value)}
+                    placeholder="Your Name or Contact"
+                    className="w-full px-3 py-2 text-sm bg-secondary/40 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={messageContent}
+                    onChange={(e) => setMessageContent(e.target.value)}
+                    placeholder="Write your message or note..."
+                    className="w-full px-3 py-2 text-sm bg-secondary/40 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground resize-none"
+                  />
+                </div>
+
+                {sendError && (
+                  <p className="text-xs text-red-500 font-mono">{sendError}</p>
+                )}
+
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSending || !messageContent.trim()}
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-md hover:bg-primary/90 transition disabled:opacity-50"
+                  >
+                    {isSending ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        <span>Send Note</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   )
 }
