@@ -50,6 +50,7 @@ const TARGET_DATE = new Date('2027-02-06T09:30:00+05:30').getTime();
 
 export default function Gate2027Page() {
   const [pin, setPin] = useState<string>('');
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [authError, setAuthError] = useState<string>('');
   const [isVerifying, setIsVerifying] = useState<boolean>(false);
@@ -81,12 +82,15 @@ export default function Gate2027Page() {
   // Active expanded notes map
   const [expandedNotes, setExpandedNotes] = useState<Record<string, boolean>>({});
 
-  // 1. Initial PIN check from localStorage
+  // 1. Initial PIN check from sessionStorage (Session Only) or localStorage (Remember Me)
   useEffect(() => {
-    const savedPin = localStorage.getItem(PIN_STORAGE_KEY);
+    const sessionPin = sessionStorage.getItem(PIN_STORAGE_KEY);
+    const localPin = localStorage.getItem(PIN_STORAGE_KEY);
+    const savedPin = sessionPin || localPin;
+
     if (savedPin) {
       setPin(savedPin);
-      verifyAndLoadData(savedPin);
+      verifyAndLoadData(savedPin, false);
     } else {
       setIsLoading(false);
     }
@@ -114,7 +118,7 @@ export default function Gate2027Page() {
   }, []);
 
   // API Call: Verify PIN & Fetch Data
-  const verifyAndLoadData = async (pinToTest: string) => {
+  const verifyAndLoadData = async (pinToTest: string, shouldSave: boolean = true) => {
     setIsVerifying(true);
     setAuthError('');
     try {
@@ -133,7 +137,16 @@ export default function Gate2027Page() {
         return;
       }
 
-      localStorage.setItem(PIN_STORAGE_KEY, pinToTest);
+      if (shouldSave) {
+        if (rememberMe) {
+          localStorage.setItem(PIN_STORAGE_KEY, pinToTest);
+          sessionStorage.removeItem(PIN_STORAGE_KEY);
+        } else {
+          sessionStorage.setItem(PIN_STORAGE_KEY, pinToTest);
+          localStorage.removeItem(PIN_STORAGE_KEY);
+        }
+      }
+
       setIsAuthenticated(true);
 
       const dataRes = await fetch('/api/gate-tracker', {
@@ -376,6 +389,18 @@ export default function Gate2027Page() {
               />
             </div>
 
+            <div className="flex items-center justify-start text-[11px] font-mono text-[#666] px-0.5">
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="w-3.5 h-3.5 accent-[#8b7355] rounded cursor-pointer"
+                />
+                <span>Remember me on this device</span>
+              </label>
+            </div>
+
             {authError && (
               <div className="flex items-center gap-1.5 text-[#c75050] text-[11px] bg-[#fdf2f2] border border-[#f8d7da] rounded-lg p-2.5 text-left">
                 <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
@@ -467,6 +492,7 @@ export default function Gate2027Page() {
               <button
                 onClick={() => {
                   localStorage.removeItem(PIN_STORAGE_KEY);
+                  sessionStorage.removeItem(PIN_STORAGE_KEY);
                   setIsAuthenticated(false);
                 }}
                 className="p-1.5 text-[#888] hover:text-[#333] bg-[#ffffff] border border-[#e6e2d3] hover:border-[#a09682] rounded-lg transition"
