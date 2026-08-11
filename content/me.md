@@ -8,9 +8,16 @@ image: "/images/me.png"
 
 &nbsp;
 
-*vo to ḳhush-bū hai havāoñ meñ bikhar jāegā*  
-*masla phuul kā hai phuul kidhar jāegā*  
-*ham to samjhe the ki ik zaḳhm hai bhar jāegā*  
-*kyā ḳhabar thī ki rag-e-jāñ meñ utar jāegā*
-  
+*vo to khushbu hai hawaon mein bikhar jaega*  
+*masla phul ka hai phul kidhar jaega*  
+*ham to samjhe the ki ik zakhm hai bhar jaega*  
+*kya khabar thi ki rag-e-jaan mein utar jaega*
+
 -- Parveen Shakir 
+
+&nbsp;
+
+*umar bhar khyali bhuto se agar main na darta,  
+khuda main kya zor se jeeta, khuda main kya chain se marta*
+
+-- Ambrish Verma
