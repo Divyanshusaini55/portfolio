@@ -291,6 +291,20 @@ export default function Gate2027Page() {
     syncStateToBackend(newState);
   };
 
+  const handleMarkAllMessagesRead = () => {
+    if (!state.messages || state.messages.length === 0) return;
+    const hasUnread = state.messages.some(m => !m.isRead);
+    if (!hasUnread) return;
+
+    const updatedMessages = state.messages.map(m => ({ ...m, isRead: true }));
+    const newState = {
+      ...state,
+      messages: updatedMessages
+    };
+    setState(newState);
+    syncStateToBackend(newState);
+  };
+
   // Helper Icon Resolver
   const renderSectionIcon = (iconName: string, active: boolean = false) => {
     const colorClass = active ? 'text-white' : 'text-[#8b7355]';
@@ -472,12 +486,12 @@ export default function Gate2027Page() {
               {/* Sync Badge */}
               <div className="flex items-center gap-1 text-[11px] font-mono">
                 {syncStatus === 'synced' && (
-                  <span className="flex items-center gap-1 text-[#276749] bg-[#f0fff4] border border-[#c6f6d5] px-2.5 py-0.5 rounded-full">
+                  <span className="flex items-center gap-1 text-[#8b7355] bg-[#faf9f5] border border-[#e6e2d3] px-2.5 py-0.5 rounded-full">
                     <Cloud className="w-3 h-3" /> Synced
                   </span>
                 )}
                 {syncStatus === 'syncing' && (
-                  <span className="flex items-center gap-1 text-[#c05621] bg-[#fffaf0] border border-[#feebc8] px-2.5 py-0.5 rounded-full animate-pulse">
+                  <span className="flex items-center gap-1 text-[#8b7355] bg-[#faf9f5] border border-[#e6e2d3] px-2.5 py-0.5 rounded-full animate-pulse">
                     <RefreshCw className="w-3 h-3 animate-spin" /> Saving...
                   </span>
                 )}
@@ -487,6 +501,21 @@ export default function Gate2027Page() {
                   </span>
                 )}
               </div>
+
+              {/* Visitor Messages Jump Button */}
+              <button
+                onClick={() => {
+                  document.getElementById('visitor-inbox')?.scrollIntoView({ behavior: 'smooth' });
+                  handleMarkAllMessagesRead();
+                }}
+                className="p-1.5 text-[#888] hover:text-[#333] bg-[#ffffff] border border-[#e6e2d3] hover:border-[#a09682] rounded-lg transition relative"
+                title="Visitor Inbox"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                {state.messages?.some(m => !m.isRead) && (
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#8b7355] rounded-full border border-[#ffffff] animate-pulse" />
+                )}
+              </button>
 
               {/* Lock Button */}
               <button
@@ -933,8 +962,8 @@ export default function Gate2027Page() {
         </div>
 
         {/* Visitor Messages Section */}
-        <div className="bg-[#ffffff] border border-[#e6e2d3] rounded-2xl p-5 space-y-4 shadow-sm">
-          <div className="flex items-center justify-between border-b border-[#e6e2d3] pb-3">
+        <div id="visitor-inbox" className="bg-[#ffffff] border border-[#e6e2d3] rounded-2xl p-5 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between gap-2 border-b border-[#e6e2d3] pb-3">
             <div>
               <h2 className={`text-base font-semibold text-[#333] flex items-center gap-2 ${cormorant.className}`}>
                 <Mail className="w-4 h-4 text-[#8b7355]" />
@@ -942,9 +971,19 @@ export default function Gate2027Page() {
               </h2>
               <p className="text-[11px] text-[#888] font-mono">Messages left by portfolio visitors</p>
             </div>
-            <span className="text-xs font-mono text-[#8b7355] bg-[#faf9f5] px-2.5 py-1 rounded-full border border-[#e6e2d3]">
-              {state.messages?.length || 0} received
-            </span>
+            <div className="flex items-center gap-2">
+              {state.messages?.some(m => !m.isRead) && (
+                <button
+                  onClick={handleMarkAllMessagesRead}
+                  className="text-[10px] font-mono text-[#8b7355] hover:underline bg-[#faf9f5] border border-[#e6e2d3] px-2 py-0.5 rounded-full"
+                >
+                  Mark read
+                </button>
+              )}
+              <span className="text-xs font-mono text-[#8b7355] bg-[#faf9f5] px-2.5 py-1 rounded-full border border-[#e6e2d3] whitespace-nowrap shrink-0">
+                {state.messages?.length || 0} received
+              </span>
+            </div>
           </div>
 
           {(!state.messages || state.messages.length === 0) ? (
@@ -956,7 +995,14 @@ export default function Gate2027Page() {
               {state.messages.map(msg => (
                 <div key={msg.id} className="bg-[#faf9f5] border border-[#e6e2d3] rounded-xl p-4 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-xs text-[#333] font-mono">{msg.senderName}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold text-xs text-[#333] font-mono">{msg.senderName}</span>
+                      {!msg.isRead && (
+                        <span className="text-[9px] font-mono text-white bg-[#8b7355] px-1.5 py-0.2 rounded-full">
+                          NEW
+                        </span>
+                      )}
+                    </div>
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] text-[#888] font-mono">
                         {new Date(msg.createdAt).toLocaleDateString()} {new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}

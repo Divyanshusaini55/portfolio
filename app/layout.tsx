@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { spaceGrotesk, crimsonPro, jetbrainsMono } from './fonts'
+import { spaceGrotesk, crimsonPro, jetbrainsMono, heorot, heorotExpanded } from './fonts'
 import { OnekoLoader } from './oneko-loader'
 import { ThemeProvider } from '@/components/theme-provider'
 import './global.css'
@@ -158,7 +158,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body className={`font-sans antialiased bg-background text-foreground ${heorot.variable} ${heorotExpanded.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -68,7 +68,7 @@ export function Header() {
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!messageContent.trim()) return
+    if (!senderName.trim() || !messageContent.trim()) return
 
     setIsSending(true)
     setSendError('')
@@ -78,7 +78,7 @@ export function Header() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          senderName: senderName.trim() || 'Anonymous Visitor',
+          senderName: senderName.trim(),
           content: messageContent.trim()
         })
       })
@@ -253,9 +253,10 @@ export function Header() {
               <form onSubmit={handleSendMessage} className="space-y-4">
                 <div>
                   <label className="block text-xs font-medium text-muted-foreground mb-1">
-                    Your Name or Contact
+                    Your Name or Contact <span className="text-red-500">*</span>
                   </label>
                   <input
+                    required
                     type="text"
                     value={senderName}
                     onChange={(e) => setSenderName(e.target.value)}
@@ -292,7 +293,7 @@ export function Header() {
                   </button>
                   <button
                     type="submit"
-                    disabled={isSending || !messageContent.trim()}
+                    disabled={isSending || !senderName.trim() || !messageContent.trim()}
                     className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-medium rounded-md hover:bg-primary/90 transition disabled:opacity-50"
                   >
                     {isSending ? (

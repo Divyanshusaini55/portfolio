@@ -78,6 +78,8 @@
   --font-sans: 'Space Grotesk', 'Space Grotesk Fallback', sans-serif;
   --font-serif: 'Crimson Pro', 'Crimson Pro Fallback', serif;
   --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  --font-heorot: var(--font-heorot), sans-serif;
+  --font-heorot-expanded: var(--font-heorot-expanded), sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

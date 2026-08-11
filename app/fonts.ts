@@ -1,3 +1,4 @@
+import localFont from 'next/font/local'
 import { 
   Space_Grotesk, 
   Crimson_Pro, 
@@ -19,5 +20,17 @@ export const crimsonPro = Crimson_Pro({
 export const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
   variable: '--font-mono',
+  display: 'swap',
+})
+
+export const heorot = localFont({
+  src: '../public/fonts/Heorot-4rLK.ttf',
+  variable: '--font-heorot',
+  display: 'swap',
+})
+
+export const heorotExpanded = localFont({
+  src: '../public/fonts/HeorotExpanded-0RLz.ttf',
+  variable: '--font-heorot-expanded',
   display: 'swap',
 })
