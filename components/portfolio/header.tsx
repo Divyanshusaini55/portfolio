@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Github, Linkedin, BookOpen, Check, Home, FileText, Mail, MessageSquare, X, Send, Loader2 } from 'lucide-react'
 import { ProfileZoom } from './profile-zoom'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { CommandPalette } from '@/components/command-palette'
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing'
 
 const SOCIAL_LINKS = [
@@ -132,6 +133,7 @@ export function Header() {
               </span>
             </a>
           ))}
+          <CommandPalette />
           <ThemeToggle />
         </div>
       </div>

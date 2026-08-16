@@ -72,6 +72,7 @@ const getDiagrams = (filename: string): DiagramData[] => {
 const projects = [
   {
     title: "ExamIntel - AI-Augmented Assessment Engine",
+    status: { label: "Live System", dot: "bg-emerald-500" },
     description: "Designed and implemented a full-stack educational assessment platform using a decoupled Django REST Framework (DRF) backend and a Next.js App Router frontend, featuring structured LLM-driven document ingestion, real-time student telemetry tracking, and a signal-driven gamification system.",
     details: [
       "Architected a decoupled full-stack platform with a high-concurrency Django REST Framework (DRF) API and a Next.js 14 App Router frontend, implementing token-based authentication and secure session-state management.",
@@ -102,6 +103,7 @@ const projects = [
   },
   {
     title: "Data Analysis Agent",
+    status: { label: "AI Agent", dot: "bg-blue-500" },
     description: "Engineered an intelligent agent that automates end-to-end data analysis, from loading datasets to generating insights and visualizations.",
     details: [
       "Automated data loading and preprocessing pipeline",
@@ -121,6 +123,7 @@ const projects = [
   },
   {
     title: "Whatsapp Chat Analyser",
+    status: { label: "Live App", dot: "bg-amber-500" },
     description: "Developed a data visualization tool to analyze exported WhatsApp chats, providing insights on user activity, message trends, and emoji frequency.",
     details: [
       "Parsed and processed chat export files",
@@ -139,6 +142,7 @@ const projects = [
   },
   {
     title: "LLM Agent",
+    status: { label: "Web AI", dot: "bg-purple-500" },
     description: "Created a browser-based agent capable of combining natural language reasoning with external tools like search engines and APIs.",
     details: [
       "Integrated natural language processing capabilities",
@@ -171,15 +175,23 @@ export function Projects() {
           >
             <div className="w-2 h-2 rounded-full bg-primary mt-2 group-hover:scale-[1.5] group-hover:shadow-[0_0_8px_rgba(var(--primary),0.8)] transition-all duration-300 flex-shrink-0" />
             <div className="flex-1">
-              <a 
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono font-semibold text-sm text-foreground group-hover:text-primary transition-colors inline-flex items-center gap-2"
-              >
-                [{project.title}]
-                <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono font-semibold text-sm text-foreground group-hover:text-primary transition-colors inline-flex items-center gap-2"
+                >
+                  [{project.title}]
+                  <ExternalLink className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+                {project.status && (
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono border border-border/60 bg-secondary/50 text-muted-foreground">
+                    <span className={`w-1.5 h-1.5 rounded-full ${project.status.dot} animate-pulse`} />
+                    {project.status.label}
+                  </span>
+                )}
+              </div>
               <p className="font-serif text-base font-medium leading-relaxed text-muted-foreground mt-2">
                 {project.description}
               </p>

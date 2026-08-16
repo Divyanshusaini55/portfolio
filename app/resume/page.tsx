@@ -33,7 +33,7 @@ export default function ResumePage() {
               Resume
             </h1>
             <a
-              href="/"
+              href="/divyanshu_saini_resume.pdf"
               download="divyanshu_saini_resume.pdf"
               className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-all duration-300 hover:shadow-md hover:shadow-primary/25 hover:-translate-y-0.5 active:scale-95"
             >

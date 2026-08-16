@@ -151,12 +151,12 @@
 }
 
 .content pre {
-    border-radius: 4px;
-    margin: 2.5rem 0;
-    padding: 1.75rem;
-    background: var(--bg-code);
+    border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
     border: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: none;
     overflow-x: auto;
 }
 
@@ -167,7 +167,76 @@
 }
 
 .content pre code {
-    color: #abb2bf;
+    color: #2e2823;
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-family: var(--font-jetbrains), monospace;
+}
+
+/* Warm Editorial Parchment Syntax Highlighting */
+.content :global(.hljs) {
+    background: transparent !important;
+    color: #2e2823;
+}
+
+.content :global(.hljs-keyword),
+.content :global(.hljs-selector-tag),
+.content :global(.hljs-subst) {
+    color: #0284c7;
+    font-weight: 500;
+}
+
+.content :global(.hljs-title),
+.content :global(.hljs-title.class_),
+.content :global(.hljs-title.class_.inherited__),
+.content :global(.hljs-title.function_),
+.content :global(.hljs-function) {
+    color: #b45309;
+    font-weight: 600;
+}
+
+.content :global(.hljs-string),
+.content :global(.hljs-doctag) {
+    color: #15803d;
+}
+
+.content :global(.hljs-comment),
+.content :global(.hljs-quote) {
+    color: #8c8273;
+    font-style: italic;
+}
+
+.content :global(.hljs-number),
+.content :global(.hljs-literal),
+.content :global(.hljs-variable),
+.content :global(.hljs-template-variable),
+.content :global(.hljs-tag .hljs-attr) {
+    color: #c026d3;
+}
+
+.content :global(.hljs-type),
+.content :global(.hljs-built_in),
+.content :global(.hljs-builtin-name) {
+    color: #b45309;
+}
+
+.content :global(.hljs-params) {
+    color: #2e2823;
+}
+
+.content :global(.hljs-attr),
+.content :global(.hljs-attribute) {
+    color: #0284c7;
+}
+
+.content :global(.hljs-symbol),
+.content :global(.hljs-bullet) {
+    color: #d97706;
+}
+
+.content :global(.hljs-meta) {
+    color: #78716c;
 }
 
 .content :not(pre) > code {
