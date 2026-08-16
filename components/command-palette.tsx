@@ -231,15 +231,6 @@ export function CommandPalette() {
       keywords: ['neofetch', 'specs', 'system', 'hardware', 'stack', 'terminal', 'cli']
     },
     {
-      id: 'cli-gate',
-      title: 'gate --countdown',
-      subtitle: 'Open private GATE 2027 milestone tracker (/space)',
-      icon: Terminal,
-      category: 'Terminal',
-      action: () => { router.push('/space'); setIsOpen(false) },
-      keywords: ['gate', '2027', 'roadmap', 'exam', 'iit', 'tracker']
-    },
-    {
       id: 'cli-quote',
       title: 'quote --random',
       subtitle: '“vo to khushbu hai hawaon mein bikhar jaega...”',
