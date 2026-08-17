@@ -93,7 +93,7 @@ export default async function Image() {
               }}
             />
             <span style={{ fontSize: '15px', fontFamily: 'monospace', color: '#94a3b8' }}>
-              iit madras · bs data science
+              open to opportunities
             </span>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            {['next.js', 'python', 'django', 'pytorch', 'typescript', 'postgresql'].map((tech) => (
+            {['Python', 'PyTorch', 'Scikit-learn','React','SQL', 'Django','Git', 'Docker', 'GCP', 'LLMs'].map((tech) => (
               <span
                 key={tech}
                 style={{

@@ -194,7 +194,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               </div>
             ) : null}
             <span style={{ fontSize: '16px', fontFamily: 'monospace', color: '#94a3b8' }}>
-              divyanshu saini · iit madras
+              divyanshu saini · full stack & ai/ml
             </span>
           </div>
 
