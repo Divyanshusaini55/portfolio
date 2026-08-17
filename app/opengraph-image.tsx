@@ -39,6 +39,16 @@ export default async function Image() {
         style: 'normal',
       })
     }
+
+    const egyptianPath = path.join(process.cwd(), 'public', 'fonts', 'NotoEgyptian.ttf')
+    if (fs.existsSync(egyptianPath)) {
+      const egyptianFile = fs.readFileSync(egyptianPath)
+      fonts.push({
+        name: 'NotoEgyptian',
+        data: egyptianFile.buffer.slice(egyptianFile.byteOffset, egyptianFile.byteOffset + egyptianFile.byteLength),
+        style: 'normal',
+      })
+    }
   } catch {}
 
   return new ImageResponse(
@@ -53,7 +63,7 @@ export default async function Image() {
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: fonts.length > 0 ? 'SpaceGrotesk, sans-serif' : 'sans-serif',
+          fontFamily: 'SpaceGrotesk, sans-serif',
           position: 'relative',
         }}
       >
@@ -67,7 +77,10 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '24px', color: '#c5a880' }}>𖤊</span>
+            {/* 4-Point Star / Emblem SVG */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#c5a880">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+            </svg>
             <span style={{ fontSize: '20px', fontFamily: 'monospace', fontWeight: 600, color: '#94a3b8', letterSpacing: '-0.5px' }}>
               divyanshusaini.me
             </span>
@@ -84,6 +97,14 @@ export default async function Image() {
               borderRadius: '9999px',
             }}
           >
+            <div
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: '#10b981',
+              }}
+            />
             <span style={{ fontSize: '15px', fontFamily: 'monospace', color: '#94a3b8' }}>
               open to opportunities
             </span>
@@ -139,7 +160,7 @@ export default async function Image() {
           )}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <h1
                 style={{
                   fontSize: '56px',
@@ -152,7 +173,16 @@ export default async function Image() {
               >
                 divyanshu saini
               </h1>
-              <span style={{ fontSize: '42px', fontWeight: 400 }}>𓀛</span>
+              <span
+                style={{
+                  fontSize: '48px',
+                  fontFamily: 'NotoEgyptian, sans-serif',
+                  color: '#94a3b8',
+                  lineHeight: 1,
+                }}
+              >
+                𓀛
+              </span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -187,7 +217,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            {['Python', 'PyTorch', 'Scikit-learn','React','SQL', 'Django', 'Docker', 'GCP', 'LLMs'].map((tech) => (
+            {['Python', 'PyTorch', 'Scikit-learn', 'React', 'SQL', 'Django', 'Docker', 'GCP', 'LLMs'].map((tech) => (
               <span
                 key={tech}
                 style={{

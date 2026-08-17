@@ -59,6 +59,16 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         style: 'normal',
       })
     }
+
+    const egyptianPath = path.join(process.cwd(), 'public', 'fonts', 'NotoEgyptian.ttf')
+    if (fs.existsSync(egyptianPath)) {
+      const egyptianFile = fs.readFileSync(egyptianPath)
+      fonts.push({
+        name: 'NotoEgyptian',
+        data: egyptianFile.buffer.slice(egyptianFile.byteOffset, egyptianFile.byteOffset + egyptianFile.byteLength),
+        style: 'normal',
+      })
+    }
   } catch {}
 
   return new ImageResponse(
@@ -73,7 +83,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: fonts.length > 0 ? 'SpaceGrotesk, sans-serif' : 'sans-serif',
+          fontFamily: 'SpaceGrotesk, sans-serif',
           position: 'relative',
         }}
       >
@@ -87,7 +97,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '24px', color: '#c5a880' }}>𖤊</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#c5a880">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+            </svg>
             <span style={{ fontSize: '20px', fontFamily: 'monospace', fontWeight: 600, color: '#94a3b8', letterSpacing: '-0.5px' }}>
               divyanshusaini.me/notes
             </span>
