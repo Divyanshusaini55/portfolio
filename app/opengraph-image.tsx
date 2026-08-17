@@ -84,14 +84,6 @@ export default async function Image() {
               borderRadius: '9999px',
             }}
           >
-            <div
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: '#10b981',
-              }}
-            />
             <span style={{ fontSize: '15px', fontFamily: 'monospace', color: '#94a3b8' }}>
               open to opportunities
             </span>
@@ -192,7 +184,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            {['Python', 'PyTorch', 'Scikit-learn','React','SQL', 'Django','Git', 'Docker', 'GCP', 'LLMs'].map((tech) => (
+            {['Python', 'PyTorch', 'Scikit-learn','React','SQL', 'Django', 'Docker', 'GCP', 'LLMs'].map((tech) => (
               <span
                 key={tech}
                 style={{
