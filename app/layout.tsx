@@ -63,15 +63,6 @@ export const metadata: Metadata = {
     siteName: 'Divyanshu Saini Portfolio',
     title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Personal portfolio showcasing projects in Full Stack Development, Machine Learning, and AI',
-    images: [
-      {
-        url: '/profile.png',
-        width: 1200,
-        height: 630,
-        alt: 'Divyanshu Saini',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -79,7 +70,6 @@ export const metadata: Metadata = {
     creator: '@dvyanshux',
     title: 'Divyanshu Saini | Full Stack Developer & ML Engineer',
     description: 'Personal portfolio of a full stack developer and ML engineer',
-    images: ['/profile.png'],
   },
   robots: {
     index: true,
