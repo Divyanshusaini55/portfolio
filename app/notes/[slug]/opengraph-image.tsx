@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-export const alt = 'Notes | Divyanshu Saini'
+export const alt = 'Notes | divyanshu saini'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -14,7 +14,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const filePath = path.join(contentDir, `${slug}.md`)
   
   let title = 'Technical Notes'
-  let description = 'Machine Learning, Deep Learning, AI & Mathematical Intuition'
+  let description = 'Machine Learning, Artificial Intelligence & Mathematical Foundations'
   let tags: string[] = ['Machine Learning', 'AI']
   
   try {
@@ -43,161 +43,176 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#090a0f',
-          padding: '50px 60px',
-          color: '#f8fafc',
+          backgroundColor: '#f8fafc',
+          padding: '44px 64px',
+          color: '#0f172a',
           fontFamily: 'sans-serif',
         }}
       >
-        {/* Main Card Frame */}
+        {/* Top Navbar */}
         <div
           style={{
-            height: '100%',
-            width: '100%',
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: '#12141a',
-            border: '1px solid #232733',
-            borderRadius: '24px',
-            padding: '48px 56px',
-            position: 'relative',
+            paddingBottom: '20px',
+            borderBottom: '1px solid #e2e8f0',
           }}
         >
-          {/* Top Bar */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              {profileBase64 ? (
-                <img
-                  src={profileBase64}
-                  alt="Divyanshu Saini"
-                  style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '14px',
-                    border: '1px solid #3b4252',
-                    objectFit: 'cover',
-                  }}
-                />
-              ) : (
-                <div
-                  style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '14px',
-                    backgroundColor: '#1e2330',
-                    border: '1px solid #3b4252',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '24px',
-                    color: '#c5a880',
-                  }}
-                >
-                  𖤊
-                </div>
-              )}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                <span style={{ fontSize: '22px', fontWeight: 700, letterSpacing: '-0.3px' }}>
-                  Divyanshu Saini
-                </span>
-                <span style={{ fontSize: '13px', color: '#94a3b8', fontFamily: 'monospace' }}>
-                  ✦ Technical Notes & Mathematical Foundations
-                </span>
-              </div>
-            </div>
+          {/* Left Nav Vector Icons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '22px', color: '#475569' }}>
+            {/* Home Icon */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            {/* Book Icon */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+              <path d="M6 6h10" />
+              <path d="M6 10h10" />
+            </svg>
+            {/* FileText Icon */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="M10 9H8" />
+              <path d="M16 13H8" />
+              <path d="M16 17H8" />
+            </svg>
+          </div>
 
+          {/* Right Nav Address */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', fontSize: '14px', fontFamily: 'monospace', color: '#64748b' }}>
+            <span>divyanshusaini.me/notes</span>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', margin: '10px 0' }}>
+          {profileBase64 ? (
+            <img
+              src={profileBase64}
+              alt="divyanshu saini"
+              style={{
+                width: '84px',
+                height: '84px',
+                borderRadius: '50%',
+                border: '2px solid #e2e8f0',
+                objectFit: 'cover',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+              }}
+            />
+          ) : (
             <div
               style={{
+                width: '84px',
+                height: '84px',
+                borderRadius: '50%',
+                backgroundColor: '#1e293b',
+                color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                fontFamily: 'monospace',
-                fontSize: '14px',
-                color: '#64748b',
-                backgroundColor: '#181b24',
-                padding: '6px 14px',
-                borderRadius: '10px',
-                border: '1px solid #272c3b',
+                justifyContent: 'center',
+                fontSize: '34px',
               }}
             >
-              <span>divyanshusaini.me/notes</span>
+              D
             </div>
-          </div>
+          )}
 
-          {/* Center Article Details */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', margin: '20px 0' }}>
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-              {tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    fontSize: '13px',
-                    fontFamily: 'monospace',
-                    padding: '4px 10px',
-                    backgroundColor: '#1c2230',
-                    color: '#60a5fa',
-                    borderRadius: '6px',
-                    border: '1px solid #2e384d',
-                  }}
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-
-            <h1
-              style={{
-                fontSize: '46px',
-                fontWeight: 700,
-                lineHeight: 1.2,
-                letterSpacing: '-1px',
-                color: '#ffffff',
-                margin: 0,
-                maxWidth: '960px',
-              }}
-            >
-              {title}
-            </h1>
-
-            <p
-              style={{
-                fontSize: '20px',
-                lineHeight: 1.5,
-                color: '#94a3b8',
-                margin: 0,
-                maxWidth: '920px',
-              }}
-            >
-              {description.length > 140 ? description.slice(0, 140) + '...' : description}
-            </p>
-          </div>
-
-          {/* Bottom Footer */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              borderTop: '1px solid #232733',
-              paddingTop: '20px',
-            }}
-          >
-            <span style={{ fontSize: '14px', color: '#64748b', fontFamily: 'monospace' }}>
-              IIT Madras BS Data Science · Divyanshu Saini
-            </span>
-
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span
               style={{
-                fontSize: '15px',
-                fontFamily: 'monospace',
-                color: '#c5a880',
-                fontWeight: 600,
+                fontSize: '30px',
+                fontWeight: 800,
+                letterSpacing: '-0.6px',
+                color: '#0f172a',
               }}
             >
-              [Read Note →]
+              divyanshu saini
+            </span>
+
+            <span style={{ fontSize: '15px', color: '#64748b', fontWeight: 500 }}>
+              Technical Notes & Research Essays · IIT Madras
             </span>
           </div>
+        </div>
+
+        {/* Center Article Content Card */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+            backgroundColor: '#ffffff',
+            border: '1px solid #e2e8f0',
+            borderRadius: '16px',
+            padding: '24px 30px',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
+          }}
+        >
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            {tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  padding: '4px 10px',
+                  backgroundColor: '#f1f5f9',
+                  color: '#2563eb',
+                  borderRadius: '6px',
+                  border: '1px solid #e2e8f0',
+                }}
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+
+          <h1
+            style={{
+              fontSize: '38px',
+              fontWeight: 800,
+              lineHeight: 1.2,
+              letterSpacing: '-0.8px',
+              color: '#0f172a',
+              margin: 0,
+              maxWidth: '980px',
+            }}
+          >
+            {title}
+          </h1>
+
+          <p
+            style={{
+              fontSize: '18px',
+              lineHeight: 1.5,
+              color: '#475569',
+              margin: 0,
+              maxWidth: '950px',
+            }}
+          >
+            {description.length > 130 ? description.slice(0, 130) + '...' : description}
+          </p>
+        </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderTop: '1px solid #e2e8f0',
+            paddingTop: '14px',
+            fontSize: '13px',
+            fontFamily: 'monospace',
+            color: '#64748b',
+          }}
+        >
+          <span>faith -&gt; [consciousness]</span>
+          <span style={{ color: '#0f172a', fontWeight: 600 }}>divyanshusaini.me/notes</span>
         </div>
       </div>
     ),
