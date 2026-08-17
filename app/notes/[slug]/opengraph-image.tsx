@@ -36,16 +36,30 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     }
   } catch {}
 
-  let fontData: ArrayBuffer | null = null
+  const fonts: any[] = []
   try {
-    const fontPath = path.join(process.cwd(), 'public', 'fonts', 'Heorot-4rLK.ttf')
-    if (fs.existsSync(fontPath)) {
-      const file = fs.readFileSync(fontPath)
-      fontData = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
+    const boldPath = path.join(process.cwd(), 'public', 'fonts', 'SpaceGrotesk-Bold.ttf')
+    if (fs.existsSync(boldPath)) {
+      const boldFile = fs.readFileSync(boldPath)
+      fonts.push({
+        name: 'SpaceGrotesk',
+        data: boldFile.buffer.slice(boldFile.byteOffset, boldFile.byteOffset + boldFile.byteLength),
+        weight: 700,
+        style: 'normal',
+      })
+    }
+
+    const mediumPath = path.join(process.cwd(), 'public', 'fonts', 'SpaceGrotesk-Medium.ttf')
+    if (fs.existsSync(mediumPath)) {
+      const mediumFile = fs.readFileSync(mediumPath)
+      fonts.push({
+        name: 'SpaceGrotesk',
+        data: mediumFile.buffer.slice(mediumFile.byteOffset, mediumFile.byteOffset + mediumFile.byteLength),
+        weight: 500,
+        style: 'normal',
+      })
     }
   } catch {}
-
-  const fonts = fontData ? [{ name: 'Heorot', data: fontData, style: 'normal' as const }] : undefined
 
   return new ImageResponse(
     (
@@ -59,7 +73,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: fontData ? 'Heorot, sans-serif' : 'sans-serif',
+          fontFamily: fonts.length > 0 ? 'SpaceGrotesk, sans-serif' : 'sans-serif',
           position: 'relative',
         }}
       >
@@ -120,7 +134,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           <h1
             style={{
               fontSize: '52px',
-              fontWeight: 800,
+              fontWeight: 700,
               letterSpacing: '-1.5px',
               color: '#f8fafc',
               margin: 0,
@@ -199,7 +213,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     ),
     {
       ...size,
-      fonts: fonts,
+      fonts: fonts.length > 0 ? fonts : undefined,
     }
   )
 }

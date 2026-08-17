@@ -16,16 +16,30 @@ export default async function Image() {
     }
   } catch {}
 
-  let fontData: ArrayBuffer | null = null
+  const fonts: any[] = []
   try {
-    const fontPath = path.join(process.cwd(), 'public', 'fonts', 'Heorot-4rLK.ttf')
-    if (fs.existsSync(fontPath)) {
-      const file = fs.readFileSync(fontPath)
-      fontData = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
+    const boldPath = path.join(process.cwd(), 'public', 'fonts', 'SpaceGrotesk-Bold.ttf')
+    if (fs.existsSync(boldPath)) {
+      const boldFile = fs.readFileSync(boldPath)
+      fonts.push({
+        name: 'SpaceGrotesk',
+        data: boldFile.buffer.slice(boldFile.byteOffset, boldFile.byteOffset + boldFile.byteLength),
+        weight: 700,
+        style: 'normal',
+      })
+    }
+
+    const mediumPath = path.join(process.cwd(), 'public', 'fonts', 'SpaceGrotesk-Medium.ttf')
+    if (fs.existsSync(mediumPath)) {
+      const mediumFile = fs.readFileSync(mediumPath)
+      fonts.push({
+        name: 'SpaceGrotesk',
+        data: mediumFile.buffer.slice(mediumFile.byteOffset, mediumFile.byteOffset + mediumFile.byteLength),
+        weight: 500,
+        style: 'normal',
+      })
     }
   } catch {}
-
-  const fonts = fontData ? [{ name: 'Heorot', data: fontData, style: 'normal' as const }] : undefined
 
   return new ImageResponse(
     (
@@ -39,7 +53,7 @@ export default async function Image() {
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: fontData ? 'Heorot, sans-serif' : 'sans-serif',
+          fontFamily: fonts.length > 0 ? 'SpaceGrotesk, sans-serif' : 'sans-serif',
           position: 'relative',
         }}
       >
@@ -132,12 +146,12 @@ export default async function Image() {
             </div>
           )}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <h1
               style={{
                 fontSize: '56px',
-                fontWeight: 800,
-                letterSpacing: '-1.5px',
+                fontWeight: 700,
+                letterSpacing: '-1px',
                 color: '#f8fafc',
                 margin: 0,
                 lineHeight: 1.1,
@@ -147,7 +161,7 @@ export default async function Image() {
             </h1>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '24px', fontWeight: 600, color: '#60a5fa' }}>
+              <span style={{ fontSize: '24px', fontWeight: 500, color: '#60a5fa' }}>
                 software engineer · machine learning enthusiast
               </span>
             </div>
@@ -161,7 +175,7 @@ export default async function Image() {
                 maxWidth: '820px',
               }}
             >
-              building intelligent software, scalable backends, and ai systems.
+              here&apos;s my digital coordinates. building intelligent software, scalable backends, and ai systems.
             </p>
           </div>
         </div>
@@ -211,7 +225,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: fonts,
+      fonts: fonts.length > 0 ? fonts : undefined,
     }
   )
 }
