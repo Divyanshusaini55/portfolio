@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function Image() {
-  let profileBase64 = ''
+  let imageBuffer: ArrayBuffer | null = null
   try {
     const possiblePaths = [
       path.join(process.cwd(), 'public', 'profile.png'),
@@ -15,8 +15,8 @@ export default async function Image() {
     ]
     for (const p of possiblePaths) {
       if (fs.existsSync(p)) {
-        const buffer = fs.readFileSync(p)
-        profileBase64 = `data:image/png;base64,${buffer.toString('base64')}`
+        const file = fs.readFileSync(p)
+        imageBuffer = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
         break
       }
     }
@@ -97,27 +97,37 @@ export default async function Image() {
 
         {/* Hero Section */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-          {profileBase64 ? (
-            <img
-              src={profileBase64}
-              alt="divyanshu saini"
-              width={140}
-              height={140}
+          {imageBuffer ? (
+            <div
               style={{
                 width: '140px',
                 height: '140px',
-                borderRadius: '50%',
+                borderRadius: '70px',
+                overflow: 'hidden',
                 border: '3px solid #cbd5e1',
-                objectFit: 'cover',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-            />
+            >
+              <img
+                // @ts-ignore
+                src={imageBuffer}
+                width="140"
+                height="140"
+                style={{
+                  width: '140px',
+                  height: '140px',
+                }}
+                alt="divyanshu saini"
+              />
+            </div>
           ) : (
             <div
               style={{
                 width: '140px',
                 height: '140px',
-                borderRadius: '50%',
+                borderRadius: '70px',
                 backgroundColor: '#0f172a',
                 color: '#ffffff',
                 display: 'flex',
@@ -169,7 +179,6 @@ export default async function Image() {
                 borderRadius: '10px',
                 fontSize: '17px',
                 fontWeight: 600,
-                boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -253,7 +262,6 @@ export default async function Image() {
             fontSize: '16px',
             color: '#334155',
             lineHeight: 1.5,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
           }}
         >
           <span>&gt; from local, got lost in localhost</span>

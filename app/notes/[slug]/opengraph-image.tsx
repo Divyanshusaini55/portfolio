@@ -27,11 +27,19 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     }
   } catch {}
 
-  let profileBase64 = ''
+  let imageBuffer: ArrayBuffer | null = null
   try {
-    const profilePath = path.join(process.cwd(), 'public', 'profile.png')
-    const buffer = fs.readFileSync(profilePath)
-    profileBase64 = `data:image/png;base64,${buffer.toString('base64')}`
+    const possiblePaths = [
+      path.join(process.cwd(), 'public', 'profile.png'),
+      path.resolve('./public/profile.png'),
+    ]
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        const file = fs.readFileSync(p)
+        imageBuffer = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
+        break
+      }
+    }
   } catch {}
 
   return new ImageResponse(
@@ -90,25 +98,37 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
         {/* Hero Section */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', margin: '10px 0' }}>
-          {profileBase64 ? (
-            <img
-              src={profileBase64}
-              alt="divyanshu saini"
+          {imageBuffer ? (
+            <div
               style={{
                 width: '84px',
                 height: '84px',
-                borderRadius: '50%',
-                border: '2px solid #e2e8f0',
-                objectFit: 'cover',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+                borderRadius: '42px',
+                overflow: 'hidden',
+                border: '2px solid #cbd5e1',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-            />
+            >
+              <img
+                // @ts-ignore
+                src={imageBuffer}
+                alt="divyanshu saini"
+                width="84"
+                height="84"
+                style={{
+                  width: '84px',
+                  height: '84px',
+                }}
+              />
+            </div>
           ) : (
             <div
               style={{
                 width: '84px',
                 height: '84px',
-                borderRadius: '50%',
+                borderRadius: '42px',
                 backgroundColor: '#1e293b',
                 color: '#ffffff',
                 display: 'flex',
