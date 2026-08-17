@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-export const alt = 'Notes | Divyanshu Saini'
+export const alt = 'notes | divyanshu saini'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -13,9 +13,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const contentDir = path.join(process.cwd(), 'content')
   const filePath = path.join(contentDir, `${slug}.md`)
   
-  let title = 'Technical Notes'
-  let description = 'Machine Learning, Artificial Intelligence & Mathematical Foundations'
-  let tags: string[] = ['Machine Learning', 'AI']
+  let title = 'technical notes'
+  let description = 'machine learning, artificial intelligence & mathematical foundations.'
+  let tags: string[] = ['machine-learning', 'ai']
   
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8')
@@ -36,6 +36,17 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     }
   } catch {}
 
+  let fontData: ArrayBuffer | null = null
+  try {
+    const fontPath = path.join(process.cwd(), 'public', 'fonts', 'Heorot-4rLK.ttf')
+    if (fs.existsSync(fontPath)) {
+      const file = fs.readFileSync(fontPath)
+      fontData = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
+    }
+  } catch {}
+
+  const fonts = fontData ? [{ name: 'Heorot', data: fontData, style: 'normal' as const }] : undefined
+
   return new ImageResponse(
     (
       <div
@@ -48,7 +59,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: 'sans-serif',
+          fontFamily: fontData ? 'Heorot, sans-serif' : 'sans-serif',
           position: 'relative',
         }}
       >
@@ -80,7 +91,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             }}
           >
             <span style={{ fontSize: '15px', fontFamily: 'monospace', color: '#60a5fa' }}>
-              ✦ Technical Notes & Research
+              ✦ technical notes & research
             </span>
           </div>
         </div>
@@ -101,7 +112,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   border: '1px solid #23293a',
                 }}
               >
-                #{tag}
+                #{tag.toLowerCase()}
               </span>
             ))}
           </div>
@@ -117,7 +128,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               maxWidth: '1000px',
             }}
           >
-            {title}
+            {title.toLowerCase()}
           </h1>
 
           <p
@@ -164,12 +175,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   width="46"
                   height="46"
                   style={{ width: '46px', height: '46px' }}
-                  alt="Divyanshu Saini"
+                  alt="divyanshu saini"
                 />
               </div>
             ) : null}
             <span style={{ fontSize: '16px', fontFamily: 'monospace', color: '#94a3b8' }}>
-              Divyanshu Saini · IIT Madras
+              divyanshu saini · iit madras
             </span>
           </div>
 
@@ -181,13 +192,14 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               fontWeight: 600,
             }}
           >
-            [Read Note →]
+            [read note →]
           </span>
         </div>
       </div>
     ),
     {
       ...size,
+      fonts: fonts,
     }
   )
 }

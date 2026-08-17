@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import fs from 'fs'
 import path from 'path'
 
-export const alt = 'Divyanshu Saini | Full Stack Developer & ML Engineer'
+export const alt = 'divyanshu saini | software engineer & ml enthusiast'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -16,6 +16,17 @@ export default async function Image() {
     }
   } catch {}
 
+  let fontData: ArrayBuffer | null = null
+  try {
+    const fontPath = path.join(process.cwd(), 'public', 'fonts', 'Heorot-4rLK.ttf')
+    if (fs.existsSync(fontPath)) {
+      const file = fs.readFileSync(fontPath)
+      fontData = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength)
+    }
+  } catch {}
+
+  const fonts = fontData ? [{ name: 'Heorot', data: fontData, style: 'normal' as const }] : undefined
+
   return new ImageResponse(
     (
       <div
@@ -28,7 +39,7 @@ export default async function Image() {
           backgroundColor: '#090a0f',
           padding: '60px 70px',
           color: '#ffffff',
-          fontFamily: 'sans-serif',
+          fontFamily: fontData ? 'Heorot, sans-serif' : 'sans-serif',
           position: 'relative',
         }}
       >
@@ -68,7 +79,7 @@ export default async function Image() {
               }}
             />
             <span style={{ fontSize: '15px', fontFamily: 'monospace', color: '#94a3b8' }}>
-              IIT Madras · BS Data Science
+              iit madras · bs data science
             </span>
           </div>
         </div>
@@ -98,7 +109,7 @@ export default async function Image() {
                   width: '150px',
                   height: '150px',
                 }}
-                alt="Divyanshu Saini"
+                alt="divyanshu saini"
               />
             </div>
           ) : (
@@ -117,11 +128,11 @@ export default async function Image() {
                 flexShrink: 0,
               }}
             >
-              DS
+              ds
             </div>
           )}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <h1
               style={{
                 fontSize: '56px',
@@ -132,12 +143,12 @@ export default async function Image() {
                 lineHeight: 1.1,
               }}
             >
-              Divyanshu Saini
+              divyanshu saini
             </h1>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '24px', fontWeight: 600, color: '#60a5fa' }}>
-                Full Stack & Machine Learning Engineer
+                software engineer · machine learning enthusiast
               </span>
             </div>
 
@@ -150,7 +161,7 @@ export default async function Image() {
                 maxWidth: '820px',
               }}
             >
-              Building intelligent software, scalable backends, and AI systems with Python, PyTorch, Next.js, and Django.
+              building intelligent software, scalable backends, and ai systems.
             </p>
           </div>
         </div>
@@ -167,7 +178,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            {['Next.js', 'Python', 'Django', 'PyTorch', 'TypeScript', 'PostgreSQL'].map((tech) => (
+            {['next.js', 'python', 'django', 'pytorch', 'typescript', 'postgresql'].map((tech) => (
               <span
                 key={tech}
                 style={{
@@ -193,13 +204,14 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            [Explore Portfolio →]
+            [explore portfolio →]
           </span>
         </div>
       </div>
     ),
     {
       ...size,
+      fonts: fonts,
     }
   )
 }
