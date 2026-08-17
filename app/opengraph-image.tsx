@@ -139,18 +139,21 @@ export default async function Image() {
           )}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <h1
-              style={{
-                fontSize: '56px',
-                fontWeight: 700,
-                letterSpacing: '-1px',
-                color: '#f8fafc',
-                margin: 0,
-                lineHeight: 1.1,
-              }}
-            >
-              divyanshu saini
-            </h1>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <h1
+                style={{
+                  fontSize: '56px',
+                  fontWeight: 700,
+                  letterSpacing: '-1px',
+                  color: '#f8fafc',
+                  margin: 0,
+                  lineHeight: 1.1,
+                }}
+              >
+                divyanshu saini
+              </h1>
+              <span style={{ fontSize: '42px', fontWeight: 400 }}>𓀛</span>
+            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '24px', fontWeight: 500, color: '#60a5fa' }}>
